@@ -9,6 +9,10 @@ import UIKit
 
 class GameViewController: UIViewController {
 
+//    override func loadView() {
+//        view = GameView()
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
