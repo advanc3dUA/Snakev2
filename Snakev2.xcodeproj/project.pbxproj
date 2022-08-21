@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		BFD6424128B24E4D00E58E79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424028B24E4D00E58E79 /* AppDelegate.swift */; };
 		BFD6424328B24E4D00E58E79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424228B24E4D00E58E79 /* SceneDelegate.swift */; };
-		BFD6424528B24E4D00E58E79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424428B24E4D00E58E79 /* ViewController.swift */; };
+		BFD6424528B24E4D00E58E79 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424428B24E4D00E58E79 /* GameViewController.swift */; };
 		BFD6424828B24E4D00E58E79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD6424628B24E4D00E58E79 /* Main.storyboard */; };
 		BFD6424A28B24E4D00E58E79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD6424928B24E4D00E58E79 /* Assets.xcassets */; };
 		BFD6424D28B24E4D00E58E79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD6424B28B24E4D00E58E79 /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		BFD6423D28B24E4D00E58E79 /* Snakev2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snakev2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD6424028B24E4D00E58E79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFD6424228B24E4D00E58E79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BFD6424428B24E4D00E58E79 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BFD6424428B24E4D00E58E79 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		BFD6424728B24E4D00E58E79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BFD6424928B24E4D00E58E79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFD6424C28B24E4D00E58E79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,15 +56,63 @@
 		BFD6423F28B24E4D00E58E79 /* Snakev2 */ = {
 			isa = PBXGroup;
 			children = (
+				BFD6425D28B24EF900E58E79 /* Resources */,
+				BFD6425528B24E6100E58E79 /* Application */,
+				BFD6425928B24EA200E58E79 /* Game */,
+			);
+			path = Snakev2;
+			sourceTree = "<group>";
+		};
+		BFD6425528B24E6100E58E79 /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				BFD6424028B24E4D00E58E79 /* AppDelegate.swift */,
 				BFD6424228B24E4D00E58E79 /* SceneDelegate.swift */,
-				BFD6424428B24E4D00E58E79 /* ViewController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		BFD6425928B24EA200E58E79 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				BFD6425A28B24EB700E58E79 /* Model */,
+				BFD6425B28B24EB700E58E79 /* View */,
+				BFD6425C28B24EB700E58E79 /* Controller */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		BFD6425A28B24EB700E58E79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BFD6425B28B24EB700E58E79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BFD6425C28B24EB700E58E79 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BFD6424428B24E4D00E58E79 /* GameViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BFD6425D28B24EF900E58E79 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				BFD6424628B24E4D00E58E79 /* Main.storyboard */,
 				BFD6424928B24E4D00E58E79 /* Assets.xcassets */,
 				BFD6424B28B24E4D00E58E79 /* LaunchScreen.storyboard */,
 				BFD6424E28B24E4D00E58E79 /* Info.plist */,
 			);
-			path = Snakev2;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD6424528B24E4D00E58E79 /* ViewController.swift in Sources */,
+				BFD6424528B24E4D00E58E79 /* GameViewController.swift in Sources */,
 				BFD6424128B24E4D00E58E79 /* AppDelegate.swift in Sources */,
 				BFD6424328B24E4D00E58E79 /* SceneDelegate.swift in Sources */,
 			);
@@ -288,7 +336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z4DAU59V98;
-				INFOPLIST_FILE = Snakev2/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Snakev2/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z4DAU59V98;
-				INFOPLIST_FILE = Snakev2/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Snakev2/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
