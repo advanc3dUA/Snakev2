@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF7764D328B36B2900F4C268 /* ControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764D228B36B2900F4C268 /* ControlButton.swift */; };
 		BFD6424128B24E4D00E58E79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424028B24E4D00E58E79 /* AppDelegate.swift */; };
 		BFD6424328B24E4D00E58E79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424228B24E4D00E58E79 /* SceneDelegate.swift */; };
 		BFD6424528B24E4D00E58E79 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424428B24E4D00E58E79 /* GameViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF7764D228B36B2900F4C268 /* ControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlButton.swift; sourceTree = "<group>"; };
 		BFD6423D28B24E4D00E58E79 /* Snakev2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snakev2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD6424028B24E4D00E58E79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFD6424228B24E4D00E58E79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF7764D128B36AE700F4C268 /* Custom views */ = {
+			isa = PBXGroup;
+			children = (
+				BF7764D228B36B2900F4C268 /* ControlButton.swift */,
+			);
+			path = "Custom views";
+			sourceTree = "<group>";
+		};
 		BFD6423428B24E4D00E58E79 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +104,7 @@
 		BFD6425B28B24EB700E58E79 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF7764D128B36AE700F4C268 /* Custom views */,
 				BFD6426128B24F8D00E58E79 /* GameView.swift */,
 			);
 			path = View;
@@ -190,6 +201,7 @@
 			files = (
 				BFD6424528B24E4D00E58E79 /* GameViewController.swift in Sources */,
 				BFD6424128B24E4D00E58E79 /* AppDelegate.swift in Sources */,
+				BF7764D328B36B2900F4C268 /* ControlButton.swift in Sources */,
 				BFD6426228B24F8D00E58E79 /* GameView.swift in Sources */,
 				BFD6424328B24E4D00E58E79 /* SceneDelegate.swift in Sources */,
 			);

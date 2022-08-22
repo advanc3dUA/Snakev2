@@ -8,26 +8,43 @@
 import UIKit
 
 class GameView: UIView {
+    
+    var pauseButton = ControlButton(image: "pause.circle")
 
     // used if storyboard or xib used
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.backgroundColor = .green
-        setupButton()
+        self.setup()
+        addAllSubviews()
     }
     
     // used if manual use in loadView()
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .red
-        setupButton()
+        self.setup()
+        addAllSubviews()
     }
     
-    func setupButton() {
-        let button = UIButton(type: .system)
-        button.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
-        button.backgroundColor = .black
-        addSubview(button)
+    private func setup() {
+        self.backgroundColor = .green
+        self.translatesAutoresizingMaskIntoConstraints = false
+        clipsToBounds = true
+        self.setNeedsUpdateConstraints()
     }
     
+    override func updateConstraints() {
+        addConstraintsForMyButton()
+        super.updateConstraints()
+    }
+    
+    private func addConstraintsForMyButton() {
+        pauseButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        pauseButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        pauseButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
+        pauseButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+    }
+    
+    func addAllSubviews() {
+        addSubview(pauseButton)
+    }
 }
