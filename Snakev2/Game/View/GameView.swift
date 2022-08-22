@@ -13,6 +13,8 @@ class GameView: UIView {
     var restartButton = RestartButton(image: "repeat")
     var levelLabel = LevelLabel()
     var scoreLabel = ScoreLabel()
+    
+    var constraintsArray = [NSLayoutConstraint]()
 
     // used if storyboard or xib used
     required init?(coder: NSCoder) {
@@ -29,7 +31,7 @@ class GameView: UIView {
     }
     
     private func setup() {
-        self.backgroundColor = .green
+        self.backgroundColor = .black
         self.translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         self.setNeedsUpdateConstraints()
@@ -49,25 +51,27 @@ class GameView: UIView {
     }
     
     private func addAllConstraints() {
-        pauseButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
-        pauseButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        pauseButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 56).isActive = true
-        pauseButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 17*2).isActive = true
-        
-        restartButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
-        restartButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        restartButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -56).isActive = true
-        restartButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 17*2).isActive = true
-        
-        levelLabel.widthAnchor.constraint(equalToConstant: 108).isActive = true
-        levelLabel.heightAnchor.constraint(equalToConstant: 21).isActive = true
-        levelLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 17*2).isActive = true
-        levelLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        
-        scoreLabel.widthAnchor.constraint(equalToConstant: 108).isActive = true
-        scoreLabel.heightAnchor.constraint(equalToConstant: 21).isActive = true
-        scoreLabel.topAnchor.constraint(equalTo: self.levelLabel.bottomAnchor, constant: 3).isActive = true
-        scoreLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            pauseButton.widthAnchor.constraint(equalToConstant: 45),
+            pauseButton.heightAnchor.constraint(equalToConstant: 45),
+            pauseButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 56),
+            pauseButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 17*2),
+            
+            restartButton.widthAnchor.constraint(equalToConstant: 45),
+            restartButton.heightAnchor.constraint(equalToConstant: 45),
+            restartButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -56),
+            restartButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 17*2),
+            
+            levelLabel.widthAnchor.constraint(equalToConstant: 108),
+            levelLabel.heightAnchor.constraint(equalToConstant: 21),
+            levelLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 17*2),
+            levelLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            scoreLabel.widthAnchor.constraint(equalToConstant: 108),
+            scoreLabel.heightAnchor.constraint(equalToConstant: 21),
+            scoreLabel.topAnchor.constraint(equalTo: self.levelLabel.bottomAnchor, constant: 3),
+            scoreLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
         
     }
 }
