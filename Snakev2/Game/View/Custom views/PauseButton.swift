@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ControlButton: UIButton {
+class PauseButton: UIButton {
     var image = UIImage()
     init(image: String) {
         super.init(frame: .zero)

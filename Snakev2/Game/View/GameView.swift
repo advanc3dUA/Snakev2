@@ -9,8 +9,10 @@ import UIKit
 
 class GameView: UIView {
     
-    var pauseButton = ControlButton(image: "pause.circle")
-    var restartButton = ControlButton(image: "repeat")
+    var pauseButton = PauseButton(image: "pause.circle")
+    var restartButton = RestartButton(image: "repeat")
+    var levelLabel = LevelLabel()
+    var scoreLabel = ScoreLabel()
 
     // used if storyboard or xib used
     required init?(coder: NSCoder) {
@@ -36,6 +38,8 @@ class GameView: UIView {
     func addAllSubviews() {
         addSubview(pauseButton)
         addSubview(restartButton)
+        addSubview(levelLabel)
+        addSubview(scoreLabel)
     }
     
     //MARK:- Constraints
@@ -48,12 +52,22 @@ class GameView: UIView {
         pauseButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
         pauseButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         pauseButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 56).isActive = true
-        pauseButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 17).isActive = true
+        pauseButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 17*2).isActive = true
         
         restartButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
         restartButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
         restartButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -56).isActive = true
-        restartButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 17).isActive = true
+        restartButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 17*2).isActive = true
+        
+        levelLabel.widthAnchor.constraint(equalToConstant: 108).isActive = true
+        levelLabel.heightAnchor.constraint(equalToConstant: 21).isActive = true
+        levelLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 17*2).isActive = true
+        levelLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        
+        scoreLabel.widthAnchor.constraint(equalToConstant: 108).isActive = true
+        scoreLabel.heightAnchor.constraint(equalToConstant: 21).isActive = true
+        scoreLabel.topAnchor.constraint(equalTo: self.levelLabel.bottomAnchor, constant: 3).isActive = true
+        scoreLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         
     }
 }
