@@ -10,7 +10,7 @@ import UIKit
 class GameView: UIView {
     
     let gameField = FieldImageView.shared.field
-    var pauseButton = PauseButton(image: "pause.circle")
+    var pauseButton = PauseButton(image: "pause.circle", changesColorOnTouch: true)
     var restartButton = RestartButton(image: "repeat")
     var levelLabel = LevelLabel()
     var scoreLabel = ScoreLabel()

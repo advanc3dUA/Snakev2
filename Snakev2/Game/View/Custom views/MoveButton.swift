@@ -9,7 +9,7 @@ import UIKit
 
 class MoveButton: UIButton {
     var image = UIImage()
-    init(image: String) {
+    init(image: String, changesColorOnTouch: Bool = false) {
         super.init(frame: .zero)
         guard let imageToSet = UIImage(systemName: image) else { print("wrong button image name"); return }
         self.image = imageToSet
