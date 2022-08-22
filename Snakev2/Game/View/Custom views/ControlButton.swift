@@ -21,7 +21,6 @@ class ControlButton: UIButton {
     }
     
     func defaultSetup() {
-//        self.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
         self.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         self.backgroundColor = .lightGray
         self.clipsToBounds = true

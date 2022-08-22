@@ -10,6 +10,7 @@ import UIKit
 class GameView: UIView {
     
     var pauseButton = ControlButton(image: "pause.circle")
+    var restartButton = ControlButton(image: "repeat")
 
     // used if storyboard or xib used
     required init?(coder: NSCoder) {
@@ -32,19 +33,27 @@ class GameView: UIView {
         self.setNeedsUpdateConstraints()
     }
     
+    func addAllSubviews() {
+        addSubview(pauseButton)
+        addSubview(restartButton)
+    }
+    
+    //MARK:- Constraints
     override func updateConstraints() {
-        addConstraintsForMyButton()
+        addAllConstraints()
         super.updateConstraints()
     }
     
-    private func addConstraintsForMyButton() {
-        pauseButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        pauseButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+    private func addAllConstraints() {
         pauseButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
         pauseButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-    }
-    
-    func addAllSubviews() {
-        addSubview(pauseButton)
+        pauseButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 56).isActive = true
+        pauseButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 17).isActive = true
+        
+        restartButton.widthAnchor.constraint(equalToConstant: 45).isActive = true
+        restartButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        restartButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -56).isActive = true
+        restartButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 17).isActive = true
+        
     }
 }
