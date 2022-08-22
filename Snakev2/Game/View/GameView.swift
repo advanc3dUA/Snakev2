@@ -14,8 +14,16 @@ class GameView: UIView {
     var restartButton = RestartButton(image: "repeat")
     var levelLabel = LevelLabel()
     var scoreLabel = ScoreLabel()
-    
-    var constraintsArray = [NSLayoutConstraint]()
+    var moveButtons: [MoveButton] = {
+        var array = [MoveButton]()
+        let arrayOfImages = ["arrow.backward", "arrow.forward", "arrow.up", "arrow.down"]
+        for index in 0...3 {
+            let button = MoveButton(image: arrayOfImages[index])
+            button.tag = index
+            array.append(button)
+        }
+        return array
+    }()
 
     // used if storyboard or xib used
     required init?(coder: NSCoder) {
@@ -44,6 +52,10 @@ class GameView: UIView {
         addSubview(levelLabel)
         addSubview(scoreLabel)
         addSubview(gameField)
+        
+        for button in moveButtons {
+            addSubview(button)
+        }
     }
     
     //MARK:- Constraints
@@ -77,8 +89,27 @@ class GameView: UIView {
             gameField.widthAnchor.constraint(equalToConstant: CGFloat(fieldWidth)),
             gameField.heightAnchor.constraint(equalToConstant: CGFloat(fieldHeight)),
             gameField.topAnchor.constraint(equalTo: self.scoreLabel.bottomAnchor, constant: 30),
-            gameField.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            gameField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            moveButtons[3].widthAnchor.constraint(equalToConstant: 160),
+            moveButtons[3].heightAnchor.constraint(equalToConstant: 60),
+            moveButtons[3].bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40),
+            moveButtons[3].centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            moveButtons[2].widthAnchor.constraint(equalToConstant: 160),
+            moveButtons[2].heightAnchor.constraint(equalToConstant: 60),
+            moveButtons[2].bottomAnchor.constraint(equalTo: moveButtons[3].topAnchor, constant: -15),
+            moveButtons[2].centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            moveButtons[0].widthAnchor.constraint(equalToConstant: 70),
+            moveButtons[0].heightAnchor.constraint(equalToConstant: 135),
+            moveButtons[0].bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40),
+            moveButtons[0].rightAnchor.constraint(equalTo: moveButtons[3].leftAnchor, constant: -15),
+            
+            moveButtons[1].widthAnchor.constraint(equalToConstant: 70),
+            moveButtons[1].heightAnchor.constraint(equalToConstant: 135),
+            moveButtons[1].bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40),
+            moveButtons[1].leftAnchor.constraint(equalTo: moveButtons[3].rightAnchor, constant: 15)
         ])
-        
     }
 }
