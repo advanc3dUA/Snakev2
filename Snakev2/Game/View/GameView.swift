@@ -9,6 +9,7 @@ import UIKit
 
 class GameView: UIView {
     
+    let gameField = FieldImageView.shared.field
     var pauseButton = PauseButton(image: "pause.circle")
     var restartButton = RestartButton(image: "repeat")
     var levelLabel = LevelLabel()
@@ -42,6 +43,7 @@ class GameView: UIView {
         addSubview(restartButton)
         addSubview(levelLabel)
         addSubview(scoreLabel)
+        addSubview(gameField)
     }
     
     //MARK:- Constraints
@@ -70,7 +72,12 @@ class GameView: UIView {
             scoreLabel.widthAnchor.constraint(equalToConstant: 108),
             scoreLabel.heightAnchor.constraint(equalToConstant: 21),
             scoreLabel.topAnchor.constraint(equalTo: self.levelLabel.bottomAnchor, constant: 3),
-            scoreLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            scoreLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            gameField.widthAnchor.constraint(equalToConstant: CGFloat(fieldWidth)),
+            gameField.heightAnchor.constraint(equalToConstant: CGFloat(fieldHeight)),
+            gameField.topAnchor.constraint(equalTo: self.scoreLabel.bottomAnchor, constant: 30),
+            gameField.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         ])
         
     }

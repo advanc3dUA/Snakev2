@@ -9,11 +9,10 @@ import UIKit
 
 class LevelLabel: UILabel {
     var levelText = "Level: "
-    var levelCurrent = 0
     
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        self.text = levelText + String(levelCurrent)
+        self.text = levelText + String(level)
         self.defaultSetup()
     }
     

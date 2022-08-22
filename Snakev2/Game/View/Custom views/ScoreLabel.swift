@@ -9,11 +9,10 @@ import UIKit
 
 class ScoreLabel: UILabel {
     var scoreText = "Score: "
-    var scoreCurrent = 0
     
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        self.text = scoreText + String(scoreCurrent)
+        self.text = scoreText + String(score)
         self.defaultSetup()
     }
     
