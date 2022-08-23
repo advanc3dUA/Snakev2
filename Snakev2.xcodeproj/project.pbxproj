@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF7764D328B36B2900F4C268 /* RestartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764D228B36B2900F4C268 /* RestartButton.swift */; };
-		BF7764D728B3869400F4C268 /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764D628B3869400F4C268 /* PauseButton.swift */; };
+		BF7764D728B3869400F4C268 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764D628B3869400F4C268 /* CustomButton.swift */; };
 		BF7764DC28B387CE00F4C268 /* LevelLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764DB28B387CE00F4C268 /* LevelLabel.swift */; };
 		BF7764DF28B38C3C00F4C268 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */; };
 		BF7764E328B390B500F4C268 /* FieldImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764E228B390B500F4C268 /* FieldImageView.swift */; };
 		BF7764E628B3970500F4C268 /* Global Vars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764E528B3970500F4C268 /* Global Vars.swift */; };
-		BF7764ED28B39A3E00F4C268 /* MoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764EC28B39A3E00F4C268 /* MoveButton.swift */; };
 		BFD6424128B24E4D00E58E79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424028B24E4D00E58E79 /* AppDelegate.swift */; };
 		BFD6424328B24E4D00E58E79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424228B24E4D00E58E79 /* SceneDelegate.swift */; };
 		BFD6424528B24E4D00E58E79 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424428B24E4D00E58E79 /* GameViewController.swift */; };
@@ -24,13 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BF7764D228B36B2900F4C268 /* RestartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartButton.swift; sourceTree = "<group>"; };
-		BF7764D628B3869400F4C268 /* PauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		BF7764D628B3869400F4C268 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		BF7764DB28B387CE00F4C268 /* LevelLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelLabel.swift; sourceTree = "<group>"; };
 		BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
 		BF7764E228B390B500F4C268 /* FieldImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldImageView.swift; sourceTree = "<group>"; };
 		BF7764E528B3970500F4C268 /* Global Vars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Global Vars.swift"; sourceTree = "<group>"; };
-		BF7764EC28B39A3E00F4C268 /* MoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveButton.swift; sourceTree = "<group>"; };
 		BFD6423D28B24E4D00E58E79 /* Snakev2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snakev2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD6424028B24E4D00E58E79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFD6424228B24E4D00E58E79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,9 +52,7 @@
 		BF7764D128B36AE700F4C268 /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
-				BF7764D628B3869400F4C268 /* PauseButton.swift */,
-				BF7764D228B36B2900F4C268 /* RestartButton.swift */,
-				BF7764EC28B39A3E00F4C268 /* MoveButton.swift */,
+				BF7764D628B3869400F4C268 /* CustomButton.swift */,
 				BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */,
 				BF7764DB28B387CE00F4C268 /* LevelLabel.swift */,
 				BF7764E228B390B500F4C268 /* FieldImageView.swift */,
@@ -217,14 +211,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF7764ED28B39A3E00F4C268 /* MoveButton.swift in Sources */,
 				BF7764DC28B387CE00F4C268 /* LevelLabel.swift in Sources */,
 				BFD6424528B24E4D00E58E79 /* GameViewController.swift in Sources */,
-				BF7764D728B3869400F4C268 /* PauseButton.swift in Sources */,
+				BF7764D728B3869400F4C268 /* CustomButton.swift in Sources */,
 				BF7764DF28B38C3C00F4C268 /* ScoreLabel.swift in Sources */,
 				BF7764E328B390B500F4C268 /* FieldImageView.swift in Sources */,
 				BFD6424128B24E4D00E58E79 /* AppDelegate.swift in Sources */,
-				BF7764D328B36B2900F4C268 /* RestartButton.swift in Sources */,
 				BF7764E628B3970500F4C268 /* Global Vars.swift in Sources */,
 				BFD6426228B24F8D00E58E79 /* GameView.swift in Sources */,
 				BFD6424328B24E4D00E58E79 /* SceneDelegate.swift in Sources */,

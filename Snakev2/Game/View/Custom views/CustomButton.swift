@@ -7,9 +7,9 @@
 
 import UIKit
 
-class RestartButton: UIButton {
+class CustomButton: UIButton {
     var image = UIImage()
-    init(image: String, changesColorOnTouch: Bool = false) {
+    init(image: String, changesColorOnSelection: Bool = false) {
         super.init(frame: .zero)
         guard let imageToSet = UIImage(systemName: image) else { print("wrong button image name"); return }
         self.image = imageToSet

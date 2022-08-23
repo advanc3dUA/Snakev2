@@ -10,15 +10,15 @@ import UIKit
 class GameView: UIView {
     
     let gameField = FieldImageView.shared.field
-    var pauseButton = PauseButton(image: "pause.circle", changesColorOnTouch: true)
-    var restartButton = RestartButton(image: "repeat")
+    var pauseButton = CustomButton(image: "pause.circle", changesColorOnSelection: true)
+    var restartButton = CustomButton(image: "repeat")
     var levelLabel = LevelLabel()
     var scoreLabel = ScoreLabel()
-    var moveButtons: [MoveButton] = {
-        var array = [MoveButton]()
+    var moveButtons: [CustomButton] = {
+        var array = [CustomButton]()
         let arrayOfImages = ["arrow.backward", "arrow.forward", "arrow.up", "arrow.down"]
         for index in 0...3 {
-            let button = MoveButton(image: arrayOfImages[index])
+            let button = CustomButton(image: arrayOfImages[index])
             button.tag = index
             array.append(button)
         }
