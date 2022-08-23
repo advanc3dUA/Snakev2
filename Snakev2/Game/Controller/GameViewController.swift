@@ -10,10 +10,8 @@ import UIKit
 class GameViewController: UIViewController {
 
     var gameView = GameView()
-    
-//    override func loadView() {
-//        view = GameView()
-//    }
+    let game = Game()
+    let snake = Snake()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +22,14 @@ class GameViewController: UIViewController {
         super.viewWillLayoutSubviews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addTargets()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        addTargets()
+        game.startNewGame()
     }
     
     func addTargets() {
