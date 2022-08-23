@@ -25,6 +25,7 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addTargets()
+        addObservers()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,6 +39,25 @@ class GameViewController: UIViewController {
     
     @objc func testClick() {
         print("clicked")
+    }
+    
+    private func updateUI() {
+        for piece in gameView.snakeView {
+            
+        }
+    }
+    
+    // observers
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(addNewPieceToSnake(_:)), name: .onSnakeAppend, object: nil)
+    }
+    
+    @objc private func addNewPieceToSnake(_ notification: Notification) {
+        if let x = notification.userInfo?["x"] as? Int, let y = notification.userInfo?["y"] as? Int {
+            gameView.snakeView.append(UIImageView(frame: CGRect(x: x, y: y, width: pieceWidth, height: pieceWidth)))
+            gameView.snakeView[0].backgroundColor = .black
+            gameView.gameField.addSubview(gameView.snakeView[0])
+        }
     }
 }
 

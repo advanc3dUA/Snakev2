@@ -11,10 +11,8 @@ class Game {
     var status: GameStatus = .lost {
         didSet {
             if oldValue == .lost {
-                print("status changed to started")
                 postGameStartedNotification()
             } else {
-                print("status changed to lost")
                 postGameLostNotification()
             }
         }
@@ -67,20 +65,13 @@ class Game {
     }
     
     private func postGameStartedNotification() {
+        print("status changed to started")
         NotificationCenter.default.post(name: .gameStarted, object: nil)
     }
     
     private func postGameLostNotification() {
+        print("status changed to lost")
         NotificationCenter.default.post(name: .gameLost, object: nil)
     }
 }
 
-extension NSNotification.Name {
-    static var gameStarted: Notification.Name {
-        return .init("gameStarted")
-    }
-    
-    static var gameLost: Notification.Name {
-        return NSNotification.Name.init("gameLost")
-    }
-}

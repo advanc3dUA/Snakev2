@@ -26,7 +26,7 @@ extension Game {
             currentdY = dY
             
             moveSnake(dX, dY)
-            print(snake.body[0].x, snake.body[0].y)
+            //print(snake.body[0].x, snake.body[0].y)
             
             
             //            if Game.touchedBorders() || Game.tailIsTouched() {

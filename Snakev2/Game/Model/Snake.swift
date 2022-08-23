@@ -14,6 +14,7 @@ class Snake {
     func createSnake() {
         let snakeHead = PieceOfSnake(x: PieceOfSnake.width, y: PieceOfSnake.height)
         self.body.append(snakeHead)
+        NotificationCenter.default.post(name: .onSnakeAppend, object: nil, userInfo: ["x": snakeHead.x, "y": snakeHead.y])
     }
     
     func eraseSnake() {

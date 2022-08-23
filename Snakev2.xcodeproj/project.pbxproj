@@ -19,6 +19,7 @@
 		BF91FAC828B4C72900EC72E9 /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91FAC728B4C72900EC72E9 /* Snake.swift */; };
 		BF91FACB28B4C87400EC72E9 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91FACA28B4C87400EC72E9 /* Direction.swift */; };
 		BF91FACE28B4CE4A00EC72E9 /* Game+Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91FACD28B4CE4A00EC72E9 /* Game+Timer.swift */; };
+		BF91FAD128B4D55700EC72E9 /* NSNotification+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91FAD028B4D55700EC72E9 /* NSNotification+extension.swift */; };
 		BFD6424128B24E4D00E58E79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424028B24E4D00E58E79 /* AppDelegate.swift */; };
 		BFD6424328B24E4D00E58E79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424228B24E4D00E58E79 /* SceneDelegate.swift */; };
 		BFD6424528B24E4D00E58E79 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD6424428B24E4D00E58E79 /* GameViewController.swift */; };
@@ -41,6 +42,7 @@
 		BF91FAC728B4C72900EC72E9 /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
 		BF91FACA28B4C87400EC72E9 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		BF91FACD28B4CE4A00EC72E9 /* Game+Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game+Timer.swift"; sourceTree = "<group>"; };
+		BF91FAD028B4D55700EC72E9 /* NSNotification+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+extension.swift"; sourceTree = "<group>"; };
 		BFD6423D28B24E4D00E58E79 /* Snakev2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snakev2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD6424028B24E4D00E58E79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFD6424228B24E4D00E58E79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				BF91FAC428B4C70F00EC72E9 /* PieceOfSnake.swift */,
 				BF91FAC728B4C72900EC72E9 /* Snake.swift */,
 				BF91FACA28B4C87400EC72E9 /* Direction.swift */,
+				BF91FAD028B4D55700EC72E9 /* NSNotification+extension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF91FAD128B4D55700EC72E9 /* NSNotification+extension.swift in Sources */,
 				BF7764DC28B387CE00F4C268 /* LevelLabel.swift in Sources */,
 				BF91FACE28B4CE4A00EC72E9 /* Game+Timer.swift in Sources */,
 				BF91FAC228B4C6CE00EC72E9 /* GameStatus.swift in Sources */,

@@ -24,6 +24,7 @@ class GameView: UIView {
         }
         return array
     }()
+    var snakeView = [UIImageView]()
 
     // used if storyboard or xib used
     required init?(coder: NSCoder) {
