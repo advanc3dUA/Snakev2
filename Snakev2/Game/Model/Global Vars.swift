@@ -20,5 +20,4 @@ var currentdY: Int = 0
 let timerTimeIntervalConst = 0.3
 let moveSnakeDurationConst = 0.4
 
-var snake = Snake()
 var newPiece = PieceOfSnake()

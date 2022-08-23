@@ -19,4 +19,8 @@ extension NSNotification.Name {
     static var onSnakeAppend: Notification.Name {
         return .init("onSnakeAppend")
     }
+    
+    static var onSnakeMove: Notification.Name {
+        return .init("onSnakeMove")
+    }
 }

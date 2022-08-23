@@ -9,22 +9,25 @@ import Foundation
 
 class Snake {
     var body: [PieceOfSnake] = []
+    static var shared = Snake()
+    
+    private init() { }
     
     //MARK:- game methods
-    func createSnake() {
+    static func createSnake() {
         let snakeHead = PieceOfSnake(x: PieceOfSnake.width, y: PieceOfSnake.height)
-        self.body.append(snakeHead)
+        Snake.shared.body.append(snakeHead)
         NotificationCenter.default.post(name: .onSnakeAppend, object: nil, userInfo: ["x": snakeHead.x, "y": snakeHead.y])
     }
     
-    func eraseSnake() {
-        self.body.removeAll()
+    static func eraseSnake() {
+        Snake.shared.body.removeAll()
     }
         
     //MARK:- add or pickup new piece methods
-    func pickUpNewPiece(_ newPiece: PieceOfSnake) -> Bool {
-        if body[0].x == newPiece.x && body[0].y == newPiece.y {
-            body.append(newPiece)
+    static func pickUpNewPiece(_ newPiece: PieceOfSnake) -> Bool {
+        if Snake.shared.body[0].x == newPiece.x && Snake.shared.body[0].y == newPiece.y {
+            Snake.shared.body.append(newPiece)
             score += 1
             return true
         }
@@ -32,24 +35,24 @@ class Snake {
     }
     
     //MARK:- moving methods
-    func saveLastPositions() {
-        for index in 0..<snake.body.count {
-            snake.body[index].saveLastPosition()
+    static func saveLastPositions() {
+        for index in 0..<Snake.shared.body.count {
+            Snake.shared.body[index].saveLastPosition()
         }
     }
-    func moveSnake(_ dX: Int, _ dY: Int) {
-        snake.body[0].x += dX
-        snake.body[0].y += dY
+    static func moveSnake(_ dX: Int, _ dY: Int) {
+        Snake.shared.body[0].x += dX
+        Snake.shared.body[0].y += dY
         
-        for index in 1..<snake.body.count {
-            snake.body[index].x = snake.body[index - 1].lastX ?? 0
-            snake.body[index].y = snake.body[index - 1].lastY ?? 0
+        for index in 1..<Snake.shared.body.count {
+            Snake.shared.body[index].x = Snake.shared.body[index - 1].lastX ?? 0
+            Snake.shared.body[index].y = Snake.shared.body[index - 1].lastY ?? 0
         }
     }
     
     //MARK:- checking current direction
-    func checkDirection() -> Direction {
-        let head = self.body[0]
+    static func checkDirection() -> Direction {
+        let head = Snake.shared.body[0]
         if let lastX = head.lastX, let lastY = head.lastY {
             if (head.x - lastX) > 0 { return .right }
             if (head.x - lastX) < 0 { return .left }

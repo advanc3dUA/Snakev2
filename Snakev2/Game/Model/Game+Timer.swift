@@ -11,7 +11,6 @@ extension Game {
     
     func startTimer(moveTo: Direction) {
         timer = Timer.scheduledTimer(withTimeInterval: timerTimeInterval, repeats: true, block: { [unowned self] (Timer) in
-            
             var dX = 0
             var dY = 0
             
@@ -37,7 +36,9 @@ extension Game {
             //                pickupNewPiece(newPieceView)
             //            }
             
+            NotificationCenter.default.post(name: .onSnakeMove, object: nil)
         })
+        
         RunLoop.current.add(timer!, forMode: .common)
     }
     
@@ -53,9 +54,10 @@ extension Game {
     
     private func moveSnake(_ dX: Int, _ dY: Int) {
         
-        snake.saveLastPositions()
-        snake.moveSnake(dX, dY)
-        snake.body[0].direction = snake.checkDirection()
+        Snake.saveLastPositions()
+        Snake.moveSnake(dX, dY)
+        Snake.shared.body[0].direction = Snake.checkDirection()
+        
     }
     
 }

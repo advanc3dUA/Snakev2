@@ -11,7 +11,7 @@ class GameViewController: UIViewController {
 
     var gameView = GameView()
     let game = Game()
-    let snake = Snake()
+    //let snake = Snake.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,15 +41,10 @@ class GameViewController: UIViewController {
         print("clicked")
     }
     
-    private func updateUI() {
-        for piece in gameView.snakeView {
-            
-        }
-    }
-    
     // observers
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(addNewPieceToSnake(_:)), name: .onSnakeAppend, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSnakeViewPosition(_:)), name: .onSnakeMove, object: nil)
     }
     
     @objc private func addNewPieceToSnake(_ notification: Notification) {
@@ -57,6 +52,17 @@ class GameViewController: UIViewController {
             gameView.snakeView.append(UIImageView(frame: CGRect(x: x, y: y, width: pieceWidth, height: pieceWidth)))
             gameView.snakeView[0].backgroundColor = .black
             gameView.gameField.addSubview(gameView.snakeView[0])
+        }
+    }
+    
+    @objc private func updateSnakeViewPosition(_ notification: Notification) {
+        var newCenterX: CGFloat = 0
+        var newCenterY: CGFloat = 0
+        for index in 0..<Snake.shared.body.count {
+            newCenterX = CGFloat(Snake.shared.body[index].x + pieceWidth / 2)
+            newCenterY = CGFloat(Snake.shared.body[index].y + pieceWidth / 2)
+            gameView.snakeView[index].center.x = newCenterX
+            gameView.snakeView[index].center.y = newCenterY
         }
     }
 }

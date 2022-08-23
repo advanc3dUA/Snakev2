@@ -50,7 +50,7 @@ struct PieceOfSnake {
     }
     
     func checkPointIsInSnakeBody(x: Int, y: Int) -> Bool {
-        for piece in snake.body {
+        for piece in Snake.shared.body {
             if piece.x == x && piece.y == y {
                 return true
             }
