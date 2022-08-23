@@ -11,7 +11,6 @@ class GameViewController: UIViewController {
 
     var gameView = GameView()
     let game = Game()
-    //let snake = Snake.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +40,7 @@ class GameViewController: UIViewController {
         print("clicked")
     }
     
-    // observers
+    // adding observers & observer's methods
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(addNewPieceToSnake(_:)), name: .onSnakeAppend, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSnakeViewPosition(_:)), name: .onSnakeMove, object: nil)
@@ -49,7 +48,7 @@ class GameViewController: UIViewController {
     
     @objc private func addNewPieceToSnake(_ notification: Notification) {
         if let x = notification.userInfo?["x"] as? Int, let y = notification.userInfo?["y"] as? Int {
-            gameView.snakeView.append(UIImageView(frame: CGRect(x: x, y: y, width: pieceWidth, height: pieceWidth)))
+            gameView.snakeView.append(UIImageView(frame: CGRect(x: x, y: y, width: pieceSize, height: pieceSize)))
             gameView.snakeView[0].backgroundColor = .black
             gameView.gameField.addSubview(gameView.snakeView[0])
         }
@@ -59,8 +58,8 @@ class GameViewController: UIViewController {
         var newCenterX: CGFloat = 0
         var newCenterY: CGFloat = 0
         for index in 0..<Snake.shared.body.count {
-            newCenterX = CGFloat(Snake.shared.body[index].x + pieceWidth / 2)
-            newCenterY = CGFloat(Snake.shared.body[index].y + pieceWidth / 2)
+            newCenterX = CGFloat(Snake.shared.body[index].x + pieceSize / 2)
+            newCenterY = CGFloat(Snake.shared.body[index].y + pieceSize / 2)
             gameView.snakeView[index].center.x = newCenterX
             gameView.snakeView[index].center.y = newCenterY
         }

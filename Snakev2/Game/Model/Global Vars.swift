@@ -7,15 +7,15 @@
 
 import Foundation
 
-let pieceWidth = 20
+let pieceSize = 20
 let fieldWidth = 300
 let fieldHeight = 400
 var score = 0
 var level = 1
 var playerName = ""
 
-var currentdX: Int = 0
-var currentdY: Int = 0
+//var currentdX: Int = 0
+//var currentdY: Int = 0
 
 let timerTimeIntervalConst = 0.3
 let moveSnakeDurationConst = 0.4

@@ -21,9 +21,6 @@ extension Game {
             case .down: dY += 20
             }
             
-            currentdX = dX
-            currentdY = dY
-            
             moveSnake(dX, dY)
             //print(snake.body[0].x, snake.body[0].y)
             
