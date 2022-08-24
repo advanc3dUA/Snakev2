@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PieceOfSnake {
+struct Piece {
     var x: Int {
         didSet {
             if (x - oldValue) > 0 { direction = .right }
@@ -22,8 +22,7 @@ struct PieceOfSnake {
     }
     var lastX: Int?
     var lastY: Int?
-    static let width: Int = 20
-    static let height: Int = 20
+    
     var direction: Direction?
     
     init(x: Int = 0, y: Int = 0) {
@@ -37,12 +36,12 @@ struct PieceOfSnake {
         var randomX = 0, randomY = 0
         repeat {
             repeat {
-                randomX = Int.random(in: (PieceOfSnake.width / 10)...fieldWidth / 10 - 4) * 10
-            } while randomX % PieceOfSnake.width != 0
+                randomX = Int.random(in: (pieceSize / 10)...fieldWidth / 10 - 4) * 10
+            } while randomX % pieceSize != 0
             
             repeat {
-                randomY = Int.random(in: (PieceOfSnake.height / 10)...fieldHeight / 10 - 4) * 10
-            } while randomY % PieceOfSnake.height != 0
+                randomY = Int.random(in: (pieceSize / 10)...fieldHeight / 10 - 4) * 10
+            } while randomY % pieceSize != 0
             
         } while checkPointIsInSnakeBody(x: randomX, y: randomY)
         
@@ -58,9 +57,16 @@ struct PieceOfSnake {
         return false
     }
     
-    func createNewPieceOfSnake() -> PieceOfSnake {
+//    func createNewPieceOfSnake() -> Piece {
+//        let randomFieldPoint = getRandomXY()
+//        return Piece(x: randomFieldPoint.x, y: randomFieldPoint.y)
+//    }
+    
+    mutating func getNewPosition() -> () {
         let randomFieldPoint = getRandomXY()
-        return PieceOfSnake(x: randomFieldPoint.x, y: randomFieldPoint.y)
+        self.x = randomFieldPoint.x
+        self.y = randomFieldPoint.y
+        NotificationCenter.default.post(name: .onPieceGotNewPosition, object: nil, userInfo: ["x": self.x, "y": self.y])
     }
     
     //MARK:- save last position

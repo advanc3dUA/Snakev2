@@ -25,6 +25,11 @@ class GameView: UIView {
         return array
     }()
     var snakeView = [UIImageView]()
+    var newPieceView: UIImageView = {
+        let piece = UIImageView(frame: CGRect(x: 0, y: 0, width: pieceSize, height: pieceSize))
+        piece.backgroundColor = .red
+        return piece
+    }()
 
     // used if storyboard or xib used
     required init?(coder: NSCoder) {
@@ -57,6 +62,8 @@ class GameView: UIView {
         for button in moveButtons {
             addSubview(button)
         }
+        
+        self.gameField.addSubview(newPieceView)
     }
     
     //MARK:- Constraints

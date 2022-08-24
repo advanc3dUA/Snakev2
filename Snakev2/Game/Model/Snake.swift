@@ -8,14 +8,14 @@
 import Foundation
 
 class Snake {
-    var body: [PieceOfSnake] = []
+    var body: [Piece] = []
     static var shared = Snake()
     
     private init() { }
     
     //MARK:- game methods
     static func createSnake() {
-        let snakeHead = PieceOfSnake(x: PieceOfSnake.width, y: PieceOfSnake.height)
+        let snakeHead = Piece(x: pieceSize, y: pieceSize)
         Snake.shared.body.append(snakeHead)
         NotificationCenter.default.post(name: .onSnakeAppend, object: nil, userInfo: ["x": snakeHead.x, "y": snakeHead.y])
     }
@@ -25,7 +25,7 @@ class Snake {
     }
         
     //MARK:- add or pickup new piece methods
-    static func pickUpNewPiece(_ newPiece: PieceOfSnake) -> Bool {
+    static func pickUpNewPiece(_ newPiece: Piece) -> Bool {
         if Snake.shared.body[0].x == newPiece.x && Snake.shared.body[0].y == newPiece.y {
             Snake.shared.body.append(newPiece)
             score += 1

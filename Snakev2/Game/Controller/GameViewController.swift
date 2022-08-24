@@ -44,12 +44,13 @@ class GameViewController: UIViewController {
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(addNewPieceToSnake(_:)), name: .onSnakeAppend, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSnakeViewPosition(_:)), name: .onSnakeMove, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateNewPiecePosition(_:)), name: .onPieceGotNewPosition, object: nil)
     }
     
     @objc private func addNewPieceToSnake(_ notification: Notification) {
         if let x = notification.userInfo?["x"] as? Int, let y = notification.userInfo?["y"] as? Int {
             gameView.snakeView.append(UIImageView(frame: CGRect(x: x, y: y, width: pieceSize, height: pieceSize)))
-            gameView.snakeView[0].backgroundColor = .black
+            gameView.snakeView.last?.backgroundColor = .black
             gameView.gameField.addSubview(gameView.snakeView[0])
         }
     }
@@ -62,6 +63,13 @@ class GameViewController: UIViewController {
             newCenterY = CGFloat(Snake.shared.body[index].y + pieceSize / 2)
             gameView.snakeView[index].center.x = newCenterX
             gameView.snakeView[index].center.y = newCenterY
+        }
+    }
+    
+    @objc func updateNewPiecePosition(_ notification: Notification) {
+        if let x = notification.userInfo?["x"] as? Int, let y = notification.userInfo?["y"] as? Int {
+            gameView.newPieceView.center.x = CGFloat(x + pieceSize / 2)
+            gameView.newPieceView.center.y = CGFloat(y + pieceSize / 2)
         }
     }
 }

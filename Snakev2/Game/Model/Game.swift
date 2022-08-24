@@ -8,6 +8,7 @@
 import Foundation
 
 class Game {
+    var newPiece = Piece()
     var status: GameStatus = .lost {
         didSet {
             if oldValue == .lost {
@@ -25,7 +26,7 @@ class Game {
         score = 0
         level = 1
         playerName = ""
-        newPiece = PieceOfSnake().createNewPieceOfSnake()
+        newPiece.getNewPosition()
         Snake.createSnake()
         startTimer(moveTo: .right)
         self.status = .started
@@ -42,13 +43,13 @@ class Game {
         if head.x < 20 && Snake.shared.body[0].direction == .left {
             return true
         }
-        if head.x > fieldWidth - 2 * PieceOfSnake.width && Snake.shared.body[0].direction == .right {
+        if head.x > fieldWidth - 2 * pieceSize && Snake.shared.body[0].direction == .right {
             return true
         }
         if head.y < 20 && Snake.shared.body[0].direction == .up {
             return true
         }
-        if head.y > fieldHeight - 2 * PieceOfSnake.height && Snake.shared.body[0].direction == .down {
+        if head.y > fieldHeight - 2 * pieceSize && Snake.shared.body[0].direction == .down {
             return true
         }
         return false
