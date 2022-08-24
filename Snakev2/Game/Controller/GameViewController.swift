@@ -8,7 +8,7 @@
 import UIKit
 
 class GameViewController: UIViewController {
-
+    
     var gameView = GameView()
     let game = Game()
     
@@ -63,6 +63,7 @@ class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateSnakeViewPosition(_:)), name: .onSnakeMove, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateNewPiecePosition(_:)), name: .onPieceGotNewPosition, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(gameFinished), name: .onGameLost, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(pickupNewPiece), name: .onPickupNewPiece, object: nil)
     }
     
     @objc private func addNewPieceToSnake(_ notification: Notification) {
@@ -77,6 +78,7 @@ class GameViewController: UIViewController {
         guard game.status == .started else { return }
         var newCenterX: CGFloat = 0
         var newCenterY: CGFloat = 0
+        
         for index in 0..<Snake.shared.body.count {
             newCenterX = CGFloat(Snake.shared.body[index].x + pieceSize / 2)
             newCenterY = CGFloat(Snake.shared.body[index].y + pieceSize / 2)
@@ -96,6 +98,13 @@ class GameViewController: UIViewController {
         game.status = .lost
         gameView.eraseViews()
         Snake.eraseSnake()
+    }
+    
+    @objc func pickupNewPiece() {
+        gameView.snakeView.append(UIImageView(frame: CGRect(x: game.newPiece.x, y: game.newPiece.y, width: pieceSize, height: pieceSize)))
+        gameView.snakeView.last?.backgroundColor = .yellow
+        gameView.gameField.addSubview(gameView.snakeView.last!)
+        
     }
 }
 

@@ -27,4 +27,8 @@ extension NSNotification.Name {
     static var onPieceGotNewPosition: Notification.Name {
         return .init("onPieceGotNewPosition")
     }
+    
+    static var onPickupNewPiece: Notification.Name {
+        return .init("onPickupNewPiece")
+    }
 }

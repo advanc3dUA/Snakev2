@@ -26,10 +26,13 @@ extension Game {
             if Snake.touchedBorders() || Snake.tailIsTouched() {
                 NotificationCenter.default.post(name: .onGameLost, object: nil)
                 cancelTimer()
+                return
             }
-            //            if snake.pickUpNewPiece(newPiece) {
-            //                pickupNewPiece(newPieceView)
-            //            }
+            if Snake.pickUpNewPiece(newPiece) {
+                NotificationCenter.default.post(name: .onPickupNewPiece, object: nil)
+                //pickupNewPiece(newPieceView)
+                print("picked up")
+            }
             
             NotificationCenter.default.post(name: .onSnakeMove, object: nil)
         })
