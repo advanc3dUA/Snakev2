@@ -40,7 +40,9 @@ class Snake {
             Snake.shared.body[index].saveLastPosition()
         }
     }
+    
     static func moveSnake(_ dX: Int, _ dY: Int) {
+        Snake.saveLastPositions()
         Snake.shared.body[0].x += dX
         Snake.shared.body[0].y += dY
         
@@ -48,6 +50,7 @@ class Snake {
             Snake.shared.body[index].x = Snake.shared.body[index - 1].lastX ?? 0
             Snake.shared.body[index].y = Snake.shared.body[index - 1].lastY ?? 0
         }
+        Snake.shared.body[0].direction = Snake.checkDirection()
     }
     
     //MARK:- checking current direction

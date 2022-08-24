@@ -57,11 +57,6 @@ struct Piece {
         return false
     }
     
-//    func createNewPieceOfSnake() -> Piece {
-//        let randomFieldPoint = getRandomXY()
-//        return Piece(x: randomFieldPoint.x, y: randomFieldPoint.y)
-//    }
-    
     mutating func getNewPosition() -> () {
         let randomFieldPoint = getRandomXY()
         self.x = randomFieldPoint.x
@@ -69,7 +64,6 @@ struct Piece {
         NotificationCenter.default.post(name: .onPieceGotNewPosition, object: nil, userInfo: ["x": self.x, "y": self.y])
     }
     
-    //MARK:- save last position
     mutating func saveLastPosition() {
         self.lastX = self.x
         self.lastY = self.y

@@ -10,7 +10,7 @@ import Foundation
 extension Game {
     
     func startTimer(moveTo: Direction) {
-        timer = Timer.scheduledTimer(withTimeInterval: timerTimeInterval, repeats: true, block: { [unowned self] (Timer) in
+        timer = Timer.scheduledTimer(withTimeInterval: timerTimeInterval, repeats: true, block: { (Timer) in
             var dX = 0
             var dY = 0
             
@@ -21,7 +21,8 @@ extension Game {
             case .down: dY += 20
             }
             
-            moveSnake(dX, dY)
+            //moveSnake(dX, dY)
+            Snake.moveSnake(dX, dY)
             //print(snake.body[0].x, snake.body[0].y)
             
             
@@ -48,13 +49,4 @@ extension Game {
         timerTimeInterval *= 0.95
         moveSnakeDuration *= 0.95
     }
-    
-    private func moveSnake(_ dX: Int, _ dY: Int) {
-        
-        Snake.saveLastPositions()
-        Snake.moveSnake(dX, dY)
-        Snake.shared.body[0].direction = Snake.checkDirection()
-        
-    }
-    
 }
