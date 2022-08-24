@@ -19,5 +19,3 @@ var playerName = ""
 
 let timerTimeIntervalConst = 0.3
 let moveSnakeDurationConst = 0.4
-
-//var newPiece = Piece()

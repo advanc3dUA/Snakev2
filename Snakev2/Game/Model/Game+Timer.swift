@@ -21,18 +21,12 @@ extension Game {
             case .down: dY += 20
             }
             
-            //moveSnake(dX, dY)
             Snake.moveSnake(dX, dY)
-            //print(Snake.shared.body[0].x, Snake.shared.body[0].y)
             
             if Snake.touchedBorders() || Snake.tailIsTouched() {
                 NotificationCenter.default.post(name: .onGameLost, object: nil)
                 cancelTimer()
             }
-            //            if Game.touchedBorders() || Game.tailIsTouched() {
-            //                finishGame()
-            //            }
-            //
             //            if snake.pickUpNewPiece(newPiece) {
             //                pickupNewPiece(newPieceView)
             //            }

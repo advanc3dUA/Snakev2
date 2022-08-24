@@ -58,6 +58,7 @@ class GameViewController: UIViewController {
     }
     
     @objc private func updateSnakeViewPosition(_ notification: Notification) {
+        guard game.status == .started else { return }
         var newCenterX: CGFloat = 0
         var newCenterY: CGFloat = 0
         for index in 0..<Snake.shared.body.count {
@@ -76,8 +77,9 @@ class GameViewController: UIViewController {
     }
     
     @objc func gameFinished() {
-        print("game finished")
-        
+        game.status = .lost
+        gameView.eraseViews()
+        Snake.eraseSnake()
     }
 }
 

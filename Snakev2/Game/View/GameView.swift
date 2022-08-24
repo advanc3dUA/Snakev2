@@ -69,6 +69,17 @@ class GameView: UIView {
         self.gameField.addSubview(newPieceView)
     }
     
+    func eraseViews() {
+        for view in snakeView {
+            view.alpha = 0
+            view.removeFromSuperview()
+        }
+        snakeView.removeAll()
+        
+        newPieceView.alpha = 0
+        newPieceView.removeFromSuperview()
+    }
+    
     //MARK:- Constraints
     override func updateConstraints() {
         addAllConstraints()

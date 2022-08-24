@@ -10,11 +10,11 @@ import Foundation
 class Game {
     var newPiece = Piece()
     var status: GameStatus = .lost {
-        didSet {
-            if oldValue == .lost {
-                postGameStartedNotification()
+        willSet {
+            if newValue == .lost {
+                print("status changed to lost")
             } else {
-                postGameLostNotification()
+                print("status changed to started")
             }
         }
     }
@@ -30,20 +30,6 @@ class Game {
         Snake.createSnake()
         startTimer(moveTo: .right)
         self.status = .started
-    }
-    
-    func finishGame() {
-        
-    }
-    
-    private func postGameStartedNotification() {
-        print("status changed to started")
-        NotificationCenter.default.post(name: .onGameStarted, object: nil)
-    }
-    
-    private func postGameLostNotification() {
-        print("status changed to lost")
-        NotificationCenter.default.post(name: .onGameLost, object: nil)
     }
 }
 
