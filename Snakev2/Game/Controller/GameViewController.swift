@@ -35,10 +35,34 @@ class GameViewController: UIViewController {
     //MARK:- Methods
     func addTargets() {
         gameView.pauseButton.addTarget(self, action: #selector(testClick), for: .touchUpInside)
+        for button in gameView.moveButtons {
+            button.addTarget(self, action: #selector(clickedMoveButton(sender:)), for: .touchUpInside)
+        }
     }
     
     @objc func testClick() {
         print("clicked")
+    }
+    
+    @objc func clickedMoveButton(sender: UIButton) {
+        guard game.status == .started else { return }
+        let currentSnakeDirection = Snake.shared.body[0].direction
+        if (currentSnakeDirection == .left || currentSnakeDirection == .right) && sender.tag == 2 {
+            game.cancelTimer()
+            game.startTimer(moveTo: .up)
+        }
+        if (currentSnakeDirection == .left || currentSnakeDirection == .right) && sender.tag == 3 {
+            game.cancelTimer()
+            game.startTimer(moveTo: .down)
+        }
+        if (currentSnakeDirection == .up || currentSnakeDirection == .down) && sender.tag == 0 {
+            game.cancelTimer()
+            game.startTimer(moveTo: .left)
+        }
+        if (currentSnakeDirection == .up || currentSnakeDirection == .down) && sender.tag == 1 {
+            game.cancelTimer()
+            game.startTimer(moveTo: .right)
+        }
     }
     
     //MARK:- Observers

@@ -37,7 +37,7 @@ extension Game {
         RunLoop.current.add(timer!, forMode: .common)
     }
     
-    private func cancelTimer() {
+    func cancelTimer() {
         timer?.invalidate()
         timer = nil
     }
