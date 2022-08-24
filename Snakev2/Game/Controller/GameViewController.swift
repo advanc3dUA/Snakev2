@@ -47,21 +47,13 @@ class GameViewController: UIViewController {
     @objc func clickedMoveButton(sender: UIButton) {
         guard game.status == .started else { return }
         let currentSnakeDirection = Snake.shared.body[0].direction
-        if (currentSnakeDirection == .left || currentSnakeDirection == .right) && sender.tag == 2 {
-            game.cancelTimer()
-            game.startTimer(moveTo: .up)
-        }
-        if (currentSnakeDirection == .left || currentSnakeDirection == .right) && sender.tag == 3 {
-            game.cancelTimer()
-            game.startTimer(moveTo: .down)
-        }
-        if (currentSnakeDirection == .up || currentSnakeDirection == .down) && sender.tag == 0 {
-            game.cancelTimer()
-            game.startTimer(moveTo: .left)
-        }
-        if (currentSnakeDirection == .up || currentSnakeDirection == .down) && sender.tag == 1 {
-            game.cancelTimer()
-            game.startTimer(moveTo: .right)
+        
+        switch sender.tag {
+        case 0 where currentSnakeDirection == .up || currentSnakeDirection == .down: game.cancelTimer(); game.startTimer(moveTo: .left)
+        case 1 where currentSnakeDirection == .up || currentSnakeDirection == .down: game.cancelTimer(); game.startTimer(moveTo: .right)
+        case 2 where currentSnakeDirection == .left || currentSnakeDirection == .right: game.cancelTimer(); game.startTimer(moveTo: .up)
+        case 3 where currentSnakeDirection == .left || currentSnakeDirection == .right: game.cancelTimer(); game.startTimer(moveTo: .down)
+        default: return
         }
     }
     
