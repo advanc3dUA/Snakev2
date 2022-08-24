@@ -27,7 +27,7 @@ class GameView: UIView {
     }()
     var snakeView = [UIImageView]()
     var newPieceView: UIImageView = {
-        let piece = UIImageView(frame: CGRect(x: 0, y: 0, width: pieceSize, height: pieceSize))
+        let piece = UIImageView(frame: CGRect(x: 0, y: 0, width: Piece.width, height: Piece.height))
         piece.backgroundColor = .red
         return piece
     }()

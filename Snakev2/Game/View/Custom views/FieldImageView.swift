@@ -17,7 +17,7 @@ class FieldImageView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .white
         imageView.layer.masksToBounds = false
-        imageView.layer.borderWidth = CGFloat(pieceSize)
+        imageView.layer.borderWidth = CGFloat(Piece.width)
         imageView.layer.borderColor = UIColor.lightGray.cgColor
         return imageView
     }()

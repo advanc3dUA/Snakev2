@@ -8,6 +8,9 @@
 import Foundation
 
 struct Piece {
+    static let width = 20
+    static let height = 20
+    
     var x: Int {
         didSet {
             if (x - oldValue) > 0 { direction = .right }
@@ -36,12 +39,12 @@ struct Piece {
         var randomX = 0, randomY = 0
         repeat {
             repeat {
-                randomX = Int.random(in: (pieceSize / 10)...fieldWidth / 10 - 4) * 10
-            } while randomX % pieceSize != 0
+                randomX = Int.random(in: (Piece.width / 10)...fieldWidth / 10 - 4) * 10
+            } while randomX % Piece.width != 0
             
             repeat {
-                randomY = Int.random(in: (pieceSize / 10)...fieldHeight / 10 - 4) * 10
-            } while randomY % pieceSize != 0
+                randomY = Int.random(in: (Piece.height / 10)...fieldHeight / 10 - 4) * 10
+            } while randomY % Piece.height != 0
             
         } while checkPointIsInSnakeBody(x: randomX, y: randomY)
         
