@@ -108,8 +108,8 @@ class GameView: UIView {
             scoreLabel.topAnchor.constraint(equalTo: self.levelLabel.bottomAnchor, constant: 3),
             scoreLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
-            gameField.widthAnchor.constraint(equalToConstant: CGFloat(fieldWidth)),
-            gameField.heightAnchor.constraint(equalToConstant: CGFloat(fieldHeight)),
+            gameField.widthAnchor.constraint(equalToConstant: CGFloat(FieldImageView.width)),
+            gameField.heightAnchor.constraint(equalToConstant: CGFloat(FieldImageView.height)),
             gameField.topAnchor.constraint(equalTo: self.scoreLabel.bottomAnchor, constant: 30),
             gameField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             

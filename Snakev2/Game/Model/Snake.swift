@@ -28,7 +28,6 @@ class Snake {
     static func pickUpNewPiece(_ newPiece: Piece) -> Bool {
         if Snake.shared.body[0].x == newPiece.x && Snake.shared.body[0].y == newPiece.y {
             Snake.shared.body.append(newPiece)
-            score += 1
             return true
         }
         return false
@@ -71,13 +70,13 @@ class Snake {
         if head.x < 20 && Snake.shared.body[0].direction == .left {
             return true
         }
-        if head.x > fieldWidth - 2 * Piece.width && Snake.shared.body[0].direction == .right {
+        if head.x > FieldImageView.width - 2 * Piece.width && Snake.shared.body[0].direction == .right {
             return true
         }
         if head.y < 20 && Snake.shared.body[0].direction == .up {
             return true
         }
-        if head.y > fieldHeight - 2 * Piece.height && Snake.shared.body[0].direction == .down {
+        if head.y > FieldImageView.height - 2 * Piece.height && Snake.shared.body[0].direction == .down {
             return true
         }
         return false

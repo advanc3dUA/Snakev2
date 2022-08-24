@@ -31,4 +31,8 @@ extension NSNotification.Name {
     static var onPickupNewPiece: Notification.Name {
         return .init("onPickupNewPiece")
     }
+    
+    static var onLevelUp: Notification.Name {
+        return self.init("onLevelUp")
+    }
 }

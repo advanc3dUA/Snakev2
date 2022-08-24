@@ -15,10 +15,10 @@ extension Game {
             var dY = 0
             
             switch moveTo {
-            case .left: dX -= 20
-            case .right: dX += 20
-            case .up: dY -= 20
-            case .down: dY += 20
+            case .left: dX -= Piece.width
+            case .right: dX += Piece.width
+            case .up: dY -= Piece.height
+            case .down: dY += Piece.height
             }
             
             Snake.moveSnake(dX, dY)
@@ -30,7 +30,6 @@ extension Game {
             }
             if Snake.pickUpNewPiece(newPiece) {
                 NotificationCenter.default.post(name: .onPickupNewPiece, object: nil)
-                //pickupNewPiece(newPieceView)
                 print("picked up")
             }
             

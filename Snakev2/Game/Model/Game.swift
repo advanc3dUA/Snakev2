@@ -8,6 +8,12 @@
 import Foundation
 
 class Game {
+    var score = 0
+    var level = 1
+    var playerName = ""
+    var timerTimeInterval = 0.3
+    var moveSnakeDuration = 0.4
+    
     var newPiece = Piece()
     var status: GameStatus = .lost {
         willSet {
@@ -19,13 +25,13 @@ class Game {
         }
     }
     var timer: Timer?
-    var timerTimeInterval = timerTimeIntervalConst
-    var moveSnakeDuration = moveSnakeDurationConst
         
     func startNewGame() {
         score = 0
         level = 1
         playerName = ""
+        timerTimeInterval = 0.3
+        moveSnakeDuration = 0.4
         newPiece.getNewPosition()
         Snake.createSnake()
         startTimer(moveTo: .right)

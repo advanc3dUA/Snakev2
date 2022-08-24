@@ -12,7 +12,7 @@ class LevelLabel: UILabel {
     
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        self.text = levelText + String(level)
+        self.text = levelText + String(1)
         self.defaultSetup()
     }
     

@@ -39,11 +39,11 @@ struct Piece {
         var randomX = 0, randomY = 0
         repeat {
             repeat {
-                randomX = Int.random(in: (Piece.width / 10)...fieldWidth / 10 - 4) * 10
+                randomX = Int.random(in: (Piece.width / 10)...FieldImageView.width / 10 - 4) * 10
             } while randomX % Piece.width != 0
             
             repeat {
-                randomY = Int.random(in: (Piece.height / 10)...fieldHeight / 10 - 4) * 10
+                randomY = Int.random(in: (Piece.height / 10)...FieldImageView.height / 10 - 4) * 10
             } while randomY % Piece.height != 0
             
         } while checkPointIsInSnakeBody(x: randomX, y: randomY)

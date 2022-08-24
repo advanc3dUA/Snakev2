@@ -12,7 +12,7 @@ class ScoreLabel: UILabel {
     
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        self.text = scoreText + String(score)
+        self.text = scoreText + String(0)
         self.defaultSetup()
     }
     
@@ -27,5 +27,9 @@ class ScoreLabel: UILabel {
         self.textColor = .systemBlue
         self.textAlignment = .center
         self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func updateScore(with newScore: Int) {
+        self.text = scoreText + String(newScore)
     }
 }

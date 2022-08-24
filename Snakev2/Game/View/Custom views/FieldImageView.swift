@@ -8,6 +8,8 @@
 import UIKit
 
 class FieldImageView {
+    static let width = 300
+    static let height = 400
     static var shared = FieldImageView()
     let field: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0,

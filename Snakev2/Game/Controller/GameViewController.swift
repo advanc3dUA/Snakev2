@@ -106,6 +106,9 @@ class GameViewController: UIViewController {
         gameView.gameField.addSubview(gameView.snakeView.last!)
         
         game.newPiece.getNewPosition()
+        
+        game.score += 1
+        gameView.scoreLabel.updateScore(with: game.score)
     }
 }
 
