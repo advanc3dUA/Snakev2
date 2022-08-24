@@ -32,6 +32,7 @@ class GameViewController: UIViewController {
         game.startNewGame()
     }
     
+    //MARK:- Methods
     func addTargets() {
         gameView.pauseButton.addTarget(self, action: #selector(testClick), for: .touchUpInside)
     }
@@ -40,11 +41,12 @@ class GameViewController: UIViewController {
         print("clicked")
     }
     
-    // adding observers & observer's methods
+    //MARK:- Observers
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(addNewPieceToSnake(_:)), name: .onSnakeAppend, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSnakeViewPosition(_:)), name: .onSnakeMove, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateNewPiecePosition(_:)), name: .onPieceGotNewPosition, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(gameFinished), name: .onGameLost, object: nil)
     }
     
     @objc private func addNewPieceToSnake(_ notification: Notification) {
@@ -71,6 +73,11 @@ class GameViewController: UIViewController {
             gameView.newPieceView.center.x = CGFloat(x + pieceSize / 2)
             gameView.newPieceView.center.y = CGFloat(y + pieceSize / 2)
         }
+    }
+    
+    @objc func gameFinished() {
+        print("game finished")
+        
     }
 }
 

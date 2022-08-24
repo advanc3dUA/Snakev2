@@ -9,6 +9,7 @@ import UIKit
 
 class GameView: UIView {
     
+    //MARK:- Variables
     let gameField = FieldImageView.shared.field
     var pauseButton = CustomButton(image: "pause.circle", changesColorOnSelection: true)
     var restartButton = CustomButton(image: "repeat")
@@ -31,6 +32,7 @@ class GameView: UIView {
         return piece
     }()
 
+    //MARK:- Inits
     // used if storyboard or xib used
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -45,6 +47,7 @@ class GameView: UIView {
         addAllSubviews()
     }
     
+    //MARK:- Methods
     private func setup() {
         self.backgroundColor = .black
         self.translatesAutoresizingMaskIntoConstraints = false

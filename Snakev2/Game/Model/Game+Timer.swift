@@ -10,7 +10,7 @@ import Foundation
 extension Game {
     
     func startTimer(moveTo: Direction) {
-        timer = Timer.scheduledTimer(withTimeInterval: timerTimeInterval, repeats: true, block: { (Timer) in
+        timer = Timer.scheduledTimer(withTimeInterval: timerTimeInterval, repeats: true, block: { [unowned self] (Timer) in
             var dX = 0
             var dY = 0
             
@@ -23,9 +23,12 @@ extension Game {
             
             //moveSnake(dX, dY)
             Snake.moveSnake(dX, dY)
-            //print(snake.body[0].x, snake.body[0].y)
+            //print(Snake.shared.body[0].x, Snake.shared.body[0].y)
             
-            
+            if Snake.touchedBorders() || Snake.tailIsTouched() {
+                NotificationCenter.default.post(name: .onGameLost, object: nil)
+                cancelTimer()
+            }
             //            if Game.touchedBorders() || Game.tailIsTouched() {
             //                finishGame()
             //            }

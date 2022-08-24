@@ -8,11 +8,11 @@
 import Foundation
 
 extension NSNotification.Name {
-    static var gameStarted: Notification.Name {
+    static var onGameStarted: Notification.Name {
         return .init("onGameStarted")
     }
     
-    static var gameLost: Notification.Name {
+    static var onGameLost: Notification.Name {
         return NSNotification.Name.init("onGameLost")
     }
     
