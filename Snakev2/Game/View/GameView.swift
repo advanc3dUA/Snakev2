@@ -31,6 +31,7 @@ class GameView: UIView {
         piece.backgroundColor = .red
         return piece
     }()
+    lazy var loseLogo: LoseLogo = LoseLogo(self.center.x / 2, self.center.y / 2)
 
     //MARK:- Inits
     // used if storyboard or xib used
@@ -65,6 +66,7 @@ class GameView: UIView {
         for button in moveButtons {
             addSubview(button)
         }
+        addSubview(loseLogo)
     }
     
     func eraseViews() {

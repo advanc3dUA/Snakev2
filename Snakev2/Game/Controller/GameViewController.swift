@@ -85,11 +85,21 @@ class GameViewController: UIViewController {
     
     //MARK:- Observers
     private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(gameStarted(_:)), name: .onGameStarted, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(addNewPieceToSnake(_:)), name: .onSnakeAppend, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSnakeViewPosition(_:)), name: .onSnakeMove, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateNewPiecePosition(_:)), name: .onPieceGotNewPosition, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(gameFinished), name: .onGameLost, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(pickupNewPiece), name: .onPickupNewPiece, object: nil)
+    }
+    
+    @objc private func gameStarted(_ notification: Notification) {
+        game.status = .started
+        gameView.loseLogo.alpha = 0.0
+        gameView.pauseButton.alpha = 1.0
+        for button in gameView.moveButtons {
+            button.alpha = 1.0
+        }
     }
     
     @objc private func addNewPieceToSnake(_ notification: Notification) {
@@ -122,9 +132,14 @@ class GameViewController: UIViewController {
     }
     
     @objc func gameFinished() {
-        game.cancelTimer()
         game.status = .lost
+        game.cancelTimer()
+        gameView.loseLogo.alpha = 1.0
         gameView.eraseViews()
+        gameView.pauseButton.alpha = 0.0
+        for button in gameView.moveButtons {
+            button.alpha = 0.0
+        }
         Snake.eraseSnake()
         if Record.isNewRecord(game.score) {
             createAlert()

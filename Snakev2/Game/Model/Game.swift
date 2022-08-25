@@ -21,6 +21,7 @@ class Game {
                 print("status changed to lost")
             } else {
                 print("status changed to started")
+//                NotificationCenter.default.post(name: .onGameStarted, object: nil)
             }
         }
     }
@@ -40,7 +41,8 @@ class Game {
         newPiece.getNewPosition()
         Snake.createSnake()
         startTimer()
-        self.status = .started
+        //self.status = .started
+        NotificationCenter.default.post(name: .onGameStarted, object: nil)
     }
 }
 

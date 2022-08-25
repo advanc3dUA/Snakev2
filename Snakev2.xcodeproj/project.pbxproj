@@ -10,6 +10,7 @@
 		BF3DA90E28B778020035A3A8 /* CaseUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DA90D28B778020035A3A8 /* CaseUserDefaults.swift */; };
 		BF3DA91228B778C00035A3A8 /* GameVC+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DA91128B778C00035A3A8 /* GameVC+alert.swift */; };
 		BF3DA91528B77A160035A3A8 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DA91428B77A160035A3A8 /* Record.swift */; };
+		BF3DA91828B77F880035A3A8 /* LoseLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DA91728B77F880035A3A8 /* LoseLogo.swift */; };
 		BF7764D728B3869400F4C268 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764D628B3869400F4C268 /* CustomButton.swift */; };
 		BF7764DC28B387CE00F4C268 /* LevelLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764DB28B387CE00F4C268 /* LevelLabel.swift */; };
 		BF7764DF28B38C3C00F4C268 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */; };
@@ -34,6 +35,7 @@
 		BF3DA90D28B778020035A3A8 /* CaseUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseUserDefaults.swift; sourceTree = "<group>"; };
 		BF3DA91128B778C00035A3A8 /* GameVC+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameVC+alert.swift"; sourceTree = "<group>"; };
 		BF3DA91428B77A160035A3A8 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		BF3DA91728B77F880035A3A8 /* LoseLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseLogo.swift; sourceTree = "<group>"; };
 		BF7764D628B3869400F4C268 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		BF7764DB28B387CE00F4C268 /* LevelLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelLabel.swift; sourceTree = "<group>"; };
 		BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */,
 				BF7764DB28B387CE00F4C268 /* LevelLabel.swift */,
 				BF7764E228B390B500F4C268 /* FieldImageView.swift */,
+				BF3DA91728B77F880035A3A8 /* LoseLogo.swift */,
 			);
 			path = "Custom views";
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				BF91FAD128B4D55700EC72E9 /* NSNotification+extension.swift in Sources */,
 				BF3DA91528B77A160035A3A8 /* Record.swift in Sources */,
 				BF7764DC28B387CE00F4C268 /* LevelLabel.swift in Sources */,
+				BF3DA91828B77F880035A3A8 /* LoseLogo.swift in Sources */,
 				BF91FACE28B4CE4A00EC72E9 /* Game+Timer.swift in Sources */,
 				BF91FAC228B4C6CE00EC72E9 /* GameStatus.swift in Sources */,
 				BF3DA90E28B778020035A3A8 /* CaseUserDefaults.swift in Sources */,
