@@ -93,6 +93,7 @@ class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateNewPiecePosition(_:)), name: .onPieceGotNewPosition, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(gameFinished), name: .onGameLost, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(pickupNewPiece), name: .onPickupNewPiece, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(levelUp), name: .onLevelUp, object: nil)
     }
     
     @objc private func gameStarted(_ notification: Notification) {
@@ -153,7 +154,7 @@ class GameViewController: UIViewController {
     
     @objc func pickupNewPiece() {
         gameView.snakeView.append(UIImageView(frame: CGRect(x: game.newPiece.x, y: game.newPiece.y, width: Piece.width, height: Piece.height)))
-        gameView.snakeView.last?.backgroundColor = .yellow
+        gameView.snakeView.last?.backgroundColor = .systemOrange
         gameView.gameField.addSubview(gameView.snakeView.last!)
         gameView.feedback.feedbackForPickUp()
         
@@ -161,7 +162,14 @@ class GameViewController: UIViewController {
         
         game.score += 1
         gameView.scoreLabel.update(with: game.score)
-        print(game.score)
+    }
+    
+    @objc func levelUp() {
+        gameView.levelLabel.update(with: game.level)
+        gameView.levelLabel.flash(numberOfFlashes: 3)
+        for piece in gameView.snakeView {
+            piece.flash(numberOfFlashes: 3)
+        }
     }
 }
 

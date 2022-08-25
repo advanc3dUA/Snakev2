@@ -11,7 +11,6 @@ extension Game {
     
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: timerTimeInterval, repeats: true, block: { [unowned self] (Timer) in
-                        
             Snake.moveSnake(dX, dY)
             
             if Snake.touchedBorders() || Snake.tailIsTouched() {
@@ -25,6 +24,7 @@ extension Game {
                 
                 if isSpeedUpNeeded() {
                     speedUp()
+                    NotificationCenter.default.post(name: .onLevelUp, object: nil)
                 }
             }
             
@@ -45,7 +45,11 @@ extension Game {
         } else { return false }
     }
     private func speedUp() {
+        level += 1
         timerTimeInterval *= 0.95
         moveSnakeDuration *= 0.95
+        
+        cancelTimer()
+        startTimer()
     }
 }
