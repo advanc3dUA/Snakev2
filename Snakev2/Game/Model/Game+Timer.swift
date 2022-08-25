@@ -18,9 +18,14 @@ extension Game {
                 NotificationCenter.default.post(name: .onGameLost, object: nil)
                 return
             }
-            if Snake.pickUpNewPiece(newPiece) {
+            if Snake.isReadyToPickUp(newPiece) {
+                Snake.pickUpNewPiece(newPiece)
                 NotificationCenter.default.post(name: .onPickupNewPiece, object: nil)
                 print("picked up")
+                
+                if isSpeedUpNeeded() {
+                    speedUp()
+                }
             }
             
             NotificationCenter.default.post(name: .onSnakeMove, object: nil)
@@ -34,6 +39,11 @@ extension Game {
         timer = nil
     }
     
+    private func isSpeedUpNeeded() -> Bool {
+        if score % 10 == 0 {
+            return true
+        } else { return false }
+    }
     private func speedUp() {
         timerTimeInterval *= 0.95
         moveSnakeDuration *= 0.95

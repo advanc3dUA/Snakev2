@@ -24,13 +24,14 @@ class Snake {
         Snake.shared.body.removeAll()
     }
         
-    //MARK:- add or pickup new piece methods
-    static func pickUpNewPiece(_ newPiece: Piece) -> Bool {
-        if Snake.shared.body[0].x == newPiece.x && Snake.shared.body[0].y == newPiece.y {
-            Snake.shared.body.append(newPiece)
-            return true
-        }
-        return false
+    //MARK:- pickup new piece methods
+    static func isReadyToPickUp(_ newPiece: Piece) -> Bool {
+        if Snake.shared.body[0].x == newPiece.x && Snake.shared.body[0].y == newPiece.y { return true }
+        else { return false }
+    }
+    
+    static func pickUpNewPiece(_ newPiece: Piece) {
+        Snake.shared.body.append(newPiece)
     }
     
     //MARK:- moving methods
