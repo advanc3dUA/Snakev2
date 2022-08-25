@@ -1,5 +1,5 @@
 //
-//  LevelLabel.swift
+//  ScoreLabel.swift
 //  Snakev2
 //
 //  Created by advanc3d on 22.08.2022.
@@ -29,7 +29,7 @@ class ScoreLabel: UILabel {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func updateScore(with newScore: Int) {
+    func update(with newScore: Int) {
         self.text = scoreText + String(newScore)
     }
 }

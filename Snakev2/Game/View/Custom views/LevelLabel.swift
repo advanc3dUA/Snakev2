@@ -28,4 +28,8 @@ class LevelLabel: UILabel {
         self.textAlignment = .center
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    func update(with newLevel: Int) {
+        self.text = levelText + String(newLevel)
+    }
 }

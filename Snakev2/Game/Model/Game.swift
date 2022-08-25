@@ -30,6 +30,8 @@ class Game {
     var dY = 0
         
     func startNewGame() {
+        dX = Piece.width
+        dY = 0
         score = 0
         level = 1
         playerName = ""

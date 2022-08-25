@@ -35,6 +35,7 @@ class GameViewController: UIViewController {
     //MARK:- Methods
     func addTargets() {
         gameView.pauseButton.addTarget(self, action: #selector(pauseGame), for: .touchUpInside)
+        gameView.restartButton.addTarget(self, action: #selector(restartGame), for: .touchUpInside)
         for button in gameView.moveButtons {
             button.addTarget(self, action: #selector(clickedMoveButton(sender:)), for: .touchUpInside)
         }
@@ -59,6 +60,13 @@ class GameViewController: UIViewController {
             gameView.restartButton.isHidden = false
             gameView.pauseButton.isSelected = false
         }
+    }
+    
+    @objc func restartGame() {
+        gameFinished()
+        game.startNewGame()
+        gameView.levelLabel.update(with: game.level)
+        gameView.scoreLabel.update(with: game.score)
     }
     
     @objc func clickedMoveButton(sender: UIButton) {
@@ -108,11 +116,14 @@ class GameViewController: UIViewController {
         if let x = notification.userInfo?["x"] as? Int, let y = notification.userInfo?["y"] as? Int {
             gameView.newPieceView.center.x = CGFloat(x + Piece.width / 2)
             gameView.newPieceView.center.y = CGFloat(y + Piece.height / 2)
+            gameView.gameField.addSubview(gameView.newPieceView)
         }
     }
     
     @objc func gameFinished() {
+        game.cancelTimer()
         game.status = .lost
+        print("gameFinished moethod")
         gameView.eraseViews()
         Snake.eraseSnake()
     }
@@ -125,7 +136,8 @@ class GameViewController: UIViewController {
         game.newPiece.getNewPosition()
         
         game.score += 1
-        gameView.scoreLabel.updateScore(with: game.score)
+        gameView.scoreLabel.update(with: game.score)
+        print(game.score)
     }
 }
 

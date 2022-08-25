@@ -65,8 +65,6 @@ class GameView: UIView {
         for button in moveButtons {
             addSubview(button)
         }
-        
-        self.gameField.addSubview(newPieceView)
     }
     
     func eraseViews() {
@@ -76,7 +74,6 @@ class GameView: UIView {
         }
         snakeView.removeAll()
         
-        newPieceView.alpha = 0
         newPieceView.removeFromSuperview()
     }
     
