@@ -81,6 +81,8 @@ class GameViewController: UIViewController {
         case 3 where currentSnakeDirection == .left || currentSnakeDirection == .right: game.dX = 0; game.dY = Piece.height
         default: return
         }
+        
+        gameView.feedback.feedbackForMoveButton()
     }
     
     //MARK:- Observers
@@ -114,20 +116,23 @@ class GameViewController: UIViewController {
         guard game.status == .started else { return }
         var newCenterX: CGFloat = 0
         var newCenterY: CGFloat = 0
-        
-        for index in 0..<Snake.shared.body.count {
-            newCenterX = CGFloat(Snake.shared.body[index].x + Piece.width / 2)
-            newCenterY = CGFloat(Snake.shared.body[index].y + Piece.height / 2)
-            gameView.snakeView[index].center.x = newCenterX
-            gameView.snakeView[index].center.y = newCenterY
+        UIView.animate(withDuration: game.moveSnakeDuration) { [unowned self] in
+            for index in 0..<Snake.shared.body.count {
+                newCenterX = CGFloat(Snake.shared.body[index].x + Piece.width / 2)
+                newCenterY = CGFloat(Snake.shared.body[index].y + Piece.height / 2)
+                gameView.snakeView[index].center.x = newCenterX
+                gameView.snakeView[index].center.y = newCenterY
+            }
         }
     }
     
     @objc func updateNewPiecePosition(_ notification: Notification) {
         if let x = notification.userInfo?["x"] as? Int, let y = notification.userInfo?["y"] as? Int {
-            gameView.newPieceView.center.x = CGFloat(x + Piece.width / 2)
-            gameView.newPieceView.center.y = CGFloat(y + Piece.height / 2)
-            gameView.gameField.addSubview(gameView.newPieceView)
+            UIView.animate(withDuration: 1) { [unowned self] in
+                gameView.newPieceView.center.x = CGFloat(x + Piece.width / 2)
+                gameView.newPieceView.center.y = CGFloat(y + Piece.height / 2)
+                gameView.gameField.addSubview(gameView.newPieceView)
+            }
         }
     }
     
@@ -150,6 +155,7 @@ class GameViewController: UIViewController {
         gameView.snakeView.append(UIImageView(frame: CGRect(x: game.newPiece.x, y: game.newPiece.y, width: Piece.width, height: Piece.height)))
         gameView.snakeView.last?.backgroundColor = .yellow
         gameView.gameField.addSubview(gameView.snakeView.last!)
+        gameView.feedback.feedbackForPickUp()
         
         game.newPiece.getNewPosition()
         

@@ -32,6 +32,7 @@ class GameView: UIView {
         return piece
     }()
     lazy var loseLogo: LoseLogo = LoseLogo(self.center.x / 2, self.center.y / 2)
+    let feedback = Feedback()
 
     //MARK:- Inits
     // used if storyboard or xib used

@@ -11,8 +11,8 @@ class Game {
     var score = 0
     var level = 1
     var playerName = ""
-    var timerTimeInterval = 0.3
-    var moveSnakeDuration = 0.4
+    var timerTimeInterval = 0.0
+    var moveSnakeDuration = 0.0
     
     var newPiece = Piece()
     var status: GameStatus = .lost {
@@ -36,7 +36,7 @@ class Game {
         level = 1
         playerName = "unknown hero"
         timerTimeInterval = 0.3
-        moveSnakeDuration = 0.4
+        moveSnakeDuration = 0.35
         newPiece.getNewPosition()
         Snake.createSnake()
         startTimer()
