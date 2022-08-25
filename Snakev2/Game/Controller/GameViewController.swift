@@ -34,14 +34,31 @@ class GameViewController: UIViewController {
     
     //MARK:- Methods
     func addTargets() {
-        gameView.pauseButton.addTarget(self, action: #selector(testClick), for: .touchUpInside)
+        gameView.pauseButton.addTarget(self, action: #selector(pauseGame), for: .touchUpInside)
         for button in gameView.moveButtons {
             button.addTarget(self, action: #selector(clickedMoveButton(sender:)), for: .touchUpInside)
         }
     }
     
-    @objc func testClick() {
-        print("clicked")
+    @objc func pauseGame() {
+        guard let timer = game.timer else { return }
+        if timer.isValid {
+            
+            for button in gameView.moveButtons {
+                button.isHidden = true
+            }
+            timer.invalidate()
+            gameView.restartButton.isHidden = true
+            gameView.pauseButton.isSelected = true
+        } else {
+            
+            for button in gameView.moveButtons {
+                button.isHidden = false
+            }
+            game.startTimer()
+            gameView.restartButton.isHidden = false
+            gameView.pauseButton.isSelected = false
+        }
     }
     
     @objc func clickedMoveButton(sender: UIButton) {

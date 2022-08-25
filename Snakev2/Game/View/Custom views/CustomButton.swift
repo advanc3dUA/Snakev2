@@ -14,6 +14,10 @@ class CustomButton: UIButton {
         guard let imageToSet = UIImage(systemName: image) else { print("wrong button image name"); return }
         self.image = imageToSet
         defaultSetup()
+        
+        if changesColorOnSelection {
+            additionalSetupForPauseButton()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -28,5 +32,9 @@ class CustomButton: UIButton {
         self.imageView?.layer.transform = CATransform3DMakeScale(1.5, 1.5, 1.5)
         self.setImage(image, for: .normal)
         self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func additionalSetupForPauseButton() {
+        self.setImage(UIImage(systemName: "play.circle"), for: .selected)
     }
 }
