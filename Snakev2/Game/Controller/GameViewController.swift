@@ -11,6 +11,7 @@ class GameViewController: UIViewController {
     
     var gameView = GameView()
     let game = Game()
+    var alert = UIAlertController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,9 +124,11 @@ class GameViewController: UIViewController {
     @objc func gameFinished() {
         game.cancelTimer()
         game.status = .lost
-        print("gameFinished moethod")
         gameView.eraseViews()
         Snake.eraseSnake()
+        if Record.isNewRecord(game.score) {
+            createAlert()
+        }
     }
     
     @objc func pickupNewPiece() {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF3DA90E28B778020035A3A8 /* CaseUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DA90D28B778020035A3A8 /* CaseUserDefaults.swift */; };
+		BF3DA91228B778C00035A3A8 /* GameVC+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DA91128B778C00035A3A8 /* GameVC+alert.swift */; };
+		BF3DA91528B77A160035A3A8 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DA91428B77A160035A3A8 /* Record.swift */; };
 		BF7764D728B3869400F4C268 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764D628B3869400F4C268 /* CustomButton.swift */; };
 		BF7764DC28B387CE00F4C268 /* LevelLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764DB28B387CE00F4C268 /* LevelLabel.swift */; };
 		BF7764DF28B38C3C00F4C268 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF3DA90D28B778020035A3A8 /* CaseUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseUserDefaults.swift; sourceTree = "<group>"; };
+		BF3DA91128B778C00035A3A8 /* GameVC+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameVC+alert.swift"; sourceTree = "<group>"; };
+		BF3DA91428B77A160035A3A8 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		BF7764D628B3869400F4C268 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		BF7764DB28B387CE00F4C268 /* LevelLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelLabel.swift; sourceTree = "<group>"; };
 		BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
@@ -127,6 +133,8 @@
 				BF91FAC728B4C72900EC72E9 /* Snake.swift */,
 				BF91FACA28B4C87400EC72E9 /* Direction.swift */,
 				BF91FAD028B4D55700EC72E9 /* NSNotification+extension.swift */,
+				BF3DA90D28B778020035A3A8 /* CaseUserDefaults.swift */,
+				BF3DA91428B77A160035A3A8 /* Record.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				BFD6424428B24E4D00E58E79 /* GameViewController.swift */,
+				BF3DA91128B778C00035A3A8 /* GameVC+alert.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -229,10 +238,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF3DA91228B778C00035A3A8 /* GameVC+alert.swift in Sources */,
 				BF91FAD128B4D55700EC72E9 /* NSNotification+extension.swift in Sources */,
+				BF3DA91528B77A160035A3A8 /* Record.swift in Sources */,
 				BF7764DC28B387CE00F4C268 /* LevelLabel.swift in Sources */,
 				BF91FACE28B4CE4A00EC72E9 /* Game+Timer.swift in Sources */,
 				BF91FAC228B4C6CE00EC72E9 /* GameStatus.swift in Sources */,
+				BF3DA90E28B778020035A3A8 /* CaseUserDefaults.swift in Sources */,
 				BFD6424528B24E4D00E58E79 /* GameViewController.swift in Sources */,
 				BF7764D728B3869400F4C268 /* CustomButton.swift in Sources */,
 				BF7764DF28B38C3C00F4C268 /* ScoreLabel.swift in Sources */,

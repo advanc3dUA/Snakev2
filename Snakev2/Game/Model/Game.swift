@@ -34,7 +34,7 @@ class Game {
         dY = 0
         score = 0
         level = 1
-        playerName = ""
+        playerName = "unknown hero"
         timerTimeInterval = 0.3
         moveSnakeDuration = 0.4
         newPiece.getNewPosition()
