@@ -9,18 +9,9 @@ import Foundation
 
 extension Game {
     
-    func startTimer(moveTo: Direction) {
+    func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: timerTimeInterval, repeats: true, block: { [unowned self] (Timer) in
-            var dX = 0
-            var dY = 0
-            
-            switch moveTo {
-            case .left: dX -= Piece.width
-            case .right: dX += Piece.width
-            case .up: dY -= Piece.height
-            case .down: dY += Piece.height
-            }
-            
+                        
             Snake.moveSnake(dX, dY)
             
             if Snake.touchedBorders() || Snake.tailIsTouched() {

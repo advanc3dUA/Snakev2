@@ -25,6 +25,9 @@ class Game {
         }
     }
     var timer: Timer?
+    
+    var dX = Piece.width
+    var dY = 0
         
     func startNewGame() {
         score = 0
@@ -34,7 +37,7 @@ class Game {
         moveSnakeDuration = 0.4
         newPiece.getNewPosition()
         Snake.createSnake()
-        startTimer(moveTo: .right)
+        startTimer()
         self.status = .started
     }
 }

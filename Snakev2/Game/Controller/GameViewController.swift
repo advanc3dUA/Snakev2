@@ -49,10 +49,10 @@ class GameViewController: UIViewController {
         let currentSnakeDirection = Snake.shared.body[0].direction
         
         switch sender.tag {
-        case 0 where currentSnakeDirection == .up || currentSnakeDirection == .down: game.cancelTimer(); game.startTimer(moveTo: .left)
-        case 1 where currentSnakeDirection == .up || currentSnakeDirection == .down: game.cancelTimer(); game.startTimer(moveTo: .right)
-        case 2 where currentSnakeDirection == .left || currentSnakeDirection == .right: game.cancelTimer(); game.startTimer(moveTo: .up)
-        case 3 where currentSnakeDirection == .left || currentSnakeDirection == .right: game.cancelTimer(); game.startTimer(moveTo: .down)
+        case 0 where currentSnakeDirection == .up || currentSnakeDirection == .down: game.dX = -Piece.width; game.dY = 0
+        case 1 where currentSnakeDirection == .up || currentSnakeDirection == .down: game.dX = Piece.width; game.dY = 0
+        case 2 where currentSnakeDirection == .left || currentSnakeDirection == .right: game.dX = 0; game.dY = -Piece.height
+        case 3 where currentSnakeDirection == .left || currentSnakeDirection == .right: game.dX = 0; game.dY = Piece.height
         default: return
         }
     }
