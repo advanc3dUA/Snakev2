@@ -10,19 +10,16 @@ import UIKit
 
 class LoseLogo: UIImageView {
         
-    init(_ x: CGFloat, _ y: CGFloat) {
-        super.init(frame: CGRect(x: x,
-                                 y: y,
-                                 width: CGFloat(FieldImageView.height / 2),
-                                 height: CGFloat(FieldImageView.height / 2)))
+    init() {
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         setup()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func setup() {
         self.image = UIImage(named: "wasted2")
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
 }

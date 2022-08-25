@@ -31,7 +31,7 @@ class GameView: UIView {
         piece.backgroundColor = .red
         return piece
     }()
-    lazy var loseLogo: LoseLogo = LoseLogo(self.center.x / 2, self.center.y / 2)
+    var loseLogo = LoseLogo()
     let feedback = Feedback()
 
     //MARK:- Inits
@@ -131,7 +131,12 @@ class GameView: UIView {
             moveButtons[1].widthAnchor.constraint(equalToConstant: 70),
             moveButtons[1].heightAnchor.constraint(equalToConstant: 135),
             moveButtons[1].bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40),
-            moveButtons[1].leftAnchor.constraint(equalTo: moveButtons[3].rightAnchor, constant: 15)
+            moveButtons[1].leftAnchor.constraint(equalTo: moveButtons[3].rightAnchor, constant: 15),
+            
+            loseLogo.widthAnchor.constraint(equalToConstant: 277),
+            loseLogo.heightAnchor.constraint(equalToConstant: 270),
+            loseLogo.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -10),
+            loseLogo.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
 }
