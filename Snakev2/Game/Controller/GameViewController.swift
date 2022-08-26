@@ -30,7 +30,7 @@ class GameViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        game.startNewGame()
+        game.start()
     }
     
     //MARK:- Methods
@@ -64,8 +64,8 @@ class GameViewController: UIViewController {
     }
     
     @objc func restartGame() {
-        gameFinished()
-        game.startNewGame()
+        finishGame()
+        game.start()
         gameView.levelLabel.update(with: game.level)
         gameView.scoreLabel.update(with: game.score)
     }
@@ -91,12 +91,11 @@ class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(addNewPieceToSnake(_:)), name: .onSnakeAppend, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSnakeViewPosition(_:)), name: .onSnakeMove, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateNewPiecePosition(_:)), name: .onPieceGotNewPosition, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(gameFinished), name: .onGameLost, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(finishGame), name: .onGameLost, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(levelUp), name: .onLevelUp, object: nil)
     }
     
     @objc private func gameStarted(_ notification: Notification) {
-        game.status = .started
         gameView.loseLogo.alpha = 0.0
         gameView.pauseButton.alpha = 1.0
         for button in gameView.moveButtons {
@@ -108,8 +107,6 @@ class GameViewController: UIViewController {
         if let x = notification.userInfo?["x"] as? Int, let y = notification.userInfo?["y"] as? Int {
             gameView.addNewPieceToSnakeView(x: x, y: y)
         }
-        game.newPiece.getNewPosition()
-        game.score += 1
         gameView.scoreLabel.update(with: game.score)
     }
     
@@ -137,16 +134,15 @@ class GameViewController: UIViewController {
         }
     }
     
-    @objc func gameFinished() {
-        game.status = .lost
-        game.cancelTimer()
+    @objc func finishGame() {
+        game.finish()
+        
         gameView.loseLogo.alpha = 1.0
         gameView.eraseViews()
         gameView.pauseButton.alpha = 0.0
         for button in gameView.moveButtons {
             button.alpha = 0.0
         }
-        Snake.eraseSnake()
         if Record.isNewRecord(game.score) {
             createAlert()
         }

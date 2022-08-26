@@ -29,7 +29,7 @@ class Game {
     var dX = Piece.width
     var dY = 0
         
-    func startNewGame() {
+    func start() {
         dX = Piece.width
         dY = 0
         score = 0
@@ -42,7 +42,14 @@ class Game {
         Snake.createSnake()
         
         startTimer()
+        status = .started
         NotificationCenter.default.post(name: .onGameStarted, object: nil)
+    }
+    
+    func finish() {
+        status = .lost
+        cancelTimer()
+        Snake.eraseSnake()
     }
 }
 
