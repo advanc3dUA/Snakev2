@@ -92,7 +92,6 @@ class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateSnakeViewPosition(_:)), name: .onSnakeMove, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateNewPiecePosition(_:)), name: .onPieceGotNewPosition, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(gameFinished), name: .onGameLost, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(pickupNewPiece), name: .onPickupNewPiece, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(levelUp), name: .onLevelUp, object: nil)
     }
     
@@ -107,10 +106,11 @@ class GameViewController: UIViewController {
     
     @objc private func addNewPieceToSnake(_ notification: Notification) {
         if let x = notification.userInfo?["x"] as? Int, let y = notification.userInfo?["y"] as? Int {
-            gameView.snakeView.append(UIImageView(frame: CGRect(x: x, y: y, width: Piece.width, height: Piece.height)))
-            gameView.snakeView.last?.backgroundColor = .black
-            gameView.gameField.addSubview(gameView.snakeView[0])
+            gameView.addNewPieceToSnakeView(x: x, y: y)
         }
+        game.newPiece.getNewPosition()
+        game.score += 1
+        gameView.scoreLabel.update(with: game.score)
     }
     
     @objc private func updateSnakeViewPosition(_ notification: Notification) {
@@ -150,18 +150,6 @@ class GameViewController: UIViewController {
         if Record.isNewRecord(game.score) {
             createAlert()
         }
-    }
-    
-    @objc func pickupNewPiece() {
-        gameView.snakeView.append(UIImageView(frame: CGRect(x: game.newPiece.x, y: game.newPiece.y, width: Piece.width, height: Piece.height)))
-        gameView.snakeView.last?.backgroundColor = .systemOrange
-        gameView.gameField.addSubview(gameView.snakeView.last!)
-        gameView.feedback.feedbackForPickUp()
-        
-        game.newPiece.getNewPosition()
-        
-        game.score += 1
-        gameView.scoreLabel.update(with: game.score)
     }
     
     @objc func levelUp() {

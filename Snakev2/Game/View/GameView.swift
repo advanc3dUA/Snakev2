@@ -80,6 +80,18 @@ class GameView: UIView {
         newPieceView.removeFromSuperview()
     }
     
+    func addNewPieceToSnakeView(x: Int, y: Int) {
+        self.snakeView.append(UIImageView(frame: CGRect(x: x, y: y, width: Piece.width, height: Piece.height)))
+        self.snakeView.last?.backgroundColor = .black
+        self.gameField.addSubview(self.snakeView.last!)
+        self.feedback.feedbackForPickUp()
+//
+//        game.newPiece.getNewPosition()
+//
+//        game.score += 1
+//        gameView.scoreLabel.update(with: game.score)
+    }
+    
     //MARK:- Constraints
     override func updateConstraints() {
         addAllConstraints()

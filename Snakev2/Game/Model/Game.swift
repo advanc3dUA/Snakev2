@@ -37,8 +37,10 @@ class Game {
         playerName = "unknown hero"
         timerTimeInterval = 0.3
         moveSnakeDuration = 0.35
+        
         newPiece.getNewPosition()
         Snake.createSnake()
+        
         startTimer()
         NotificationCenter.default.post(name: .onGameStarted, object: nil)
     }

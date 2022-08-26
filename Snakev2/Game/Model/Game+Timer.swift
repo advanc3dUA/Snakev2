@@ -19,7 +19,7 @@ extension Game {
             }
             if Snake.isReadyToPickUp(newPiece) {
                 Snake.pickUpNewPiece(newPiece)
-                NotificationCenter.default.post(name: .onPickupNewPiece, object: nil)
+                NotificationCenter.default.post(name: .onSnakeAppend, object: nil, userInfo: ["x": Snake.shared.body.last?.x as Any, "y": Snake.shared.body.last?.y as Any])
                 print("picked up")
                 
                 if isSpeedUpNeeded() {
