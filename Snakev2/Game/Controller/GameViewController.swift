@@ -26,11 +26,12 @@ class GameViewController: UIViewController {
         super.viewWillAppear(animated)
         addTargets()
         addObservers()
+        game.start()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        game.start()
+        //game.start()
     }
     
     //MARK:- Methods

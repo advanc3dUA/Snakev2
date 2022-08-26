@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DHH-2I-Zhr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -8,7 +8,100 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Game View Controller-->
+        <!--Menu-->
+        <scene sceneID="3BK-in-3JM">
+            <objects>
+                <viewController id="gGc-wo-A7e" customClass="MenuViewController" customModule="Snakev2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GYc-4X-jvO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snake game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRw-PY-ICd">
+                                <rect key="frame" x="127.5" y="133" width="159" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLj-kq-Q9Z">
+                                <rect key="frame" x="128" y="227" width="158" height="41"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="158" id="2ZP-8n-ixD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="new game">
+                                    <color key="titleColor" systemColor="systemGreenColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="BXc-oS-PQI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLo-Jt-MaM">
+                                <rect key="frame" x="128" y="311" width="158" height="41"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="158" id="zA2-BN-pQU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <state key="normal" title="options">
+                                    <color key="titleColor" systemColor="systemGreenColor"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snake-logo" translatesAutoresizingMaskIntoConstraints="NO" id="lxg-FM-Kbx">
+                                <rect key="frame" x="87" y="394" width="240" height="234"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="2S2-Pr-PlZ"/>
+                                    <constraint firstAttribute="width" secondItem="lxg-FM-Kbx" secondAttribute="height" multiplier="40:39" id="z9G-b1-ibE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="record here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEf-k3-go0">
+                                <rect key="frame" x="150" y="747" width="114" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="114" id="D0N-e5-42Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.99215686270000003" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current record:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qm3-Nz-vu1">
+                                <rect key="frame" x="150" y="723" width="114" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="114" id="ZXf-HB-Nhh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.99215686270000003" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8TJ-Hl-Vkg"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vRw-PY-ICd" firstAttribute="centerX" secondItem="8TJ-Hl-Vkg" secondAttribute="centerX" id="122-5C-we7"/>
+                            <constraint firstItem="lxg-FM-Kbx" firstAttribute="top" secondItem="WLo-Jt-MaM" secondAttribute="bottom" constant="42" id="5Sd-zs-b4N"/>
+                            <constraint firstItem="WLo-Jt-MaM" firstAttribute="top" secondItem="hLj-kq-Q9Z" secondAttribute="bottom" constant="43" id="9Fg-Kb-ciK"/>
+                            <constraint firstItem="vRw-PY-ICd" firstAttribute="top" secondItem="8TJ-Hl-Vkg" secondAttribute="top" constant="45" id="9LU-Ft-voI"/>
+                            <constraint firstItem="8TJ-Hl-Vkg" firstAttribute="bottom" secondItem="ZEf-k3-go0" secondAttribute="bottom" constant="94" id="A6e-6r-Tsh"/>
+                            <constraint firstItem="ZEf-k3-go0" firstAttribute="centerX" secondItem="8TJ-Hl-Vkg" secondAttribute="centerX" id="GU3-VF-Srz"/>
+                            <constraint firstItem="hLj-kq-Q9Z" firstAttribute="centerX" secondItem="8TJ-Hl-Vkg" secondAttribute="centerX" id="HcD-OI-VDR"/>
+                            <constraint firstItem="hLj-kq-Q9Z" firstAttribute="top" secondItem="vRw-PY-ICd" secondAttribute="bottom" constant="58" id="KJR-rT-ujL"/>
+                            <constraint firstItem="lxg-FM-Kbx" firstAttribute="centerX" secondItem="8TJ-Hl-Vkg" secondAttribute="centerX" id="Q4W-ia-Rkj"/>
+                            <constraint firstItem="WLo-Jt-MaM" firstAttribute="centerX" secondItem="8TJ-Hl-Vkg" secondAttribute="centerX" id="QDX-1X-5ae"/>
+                            <constraint firstItem="Qm3-Nz-vu1" firstAttribute="centerX" secondItem="8TJ-Hl-Vkg" secondAttribute="centerX" id="TKa-7B-9bC"/>
+                            <constraint firstItem="ZEf-k3-go0" firstAttribute="top" secondItem="Qm3-Nz-vu1" secondAttribute="bottom" constant="3" id="azC-5O-PWy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Menu" id="XmU-kP-3e0"/>
+                    <connections>
+                        <outlet property="newGameButton" destination="hLj-kq-Q9Z" id="741-ev-tZA"/>
+                        <outlet property="optionsButton" destination="WLo-Jt-MaM" id="qN5-cg-erN"/>
+                        <outlet property="recordLabel" destination="ZEf-k3-go0" id="0MF-Ty-L9l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y11-6P-IcK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-213.04347826086959" y="118.52678571428571"/>
+        </scene>
+        <!--Game-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="Snakev2" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,15 +111,38 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Game" id="wKv-Ca-k9q"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-203" y="119"/>
+            <point key="canvasLocation" x="705.79710144927537" y="118.52678571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YFq-2o-NVa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DHH-2I-Zhr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="940-gT-Kgl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gGc-wo-A7e" kind="relationship" relationship="rootViewController" id="uLi-zc-ZEv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wnE-xb-6Bl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1123.1884057971015" y="118.52678571428571"/>
         </scene>
     </scenes>
     <resources>
+        <image name="snake-logo" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

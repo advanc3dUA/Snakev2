@@ -13,6 +13,7 @@
 		BF3DA91828B77F880035A3A8 /* LoseLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DA91728B77F880035A3A8 /* LoseLogo.swift */; };
 		BF3DA91B28B795D70035A3A8 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DA91A28B795D70035A3A8 /* Feedback.swift */; };
 		BF3DA91E28B79DAD0035A3A8 /* UIImage+flashing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DA91D28B79DAD0035A3A8 /* UIImage+flashing.swift */; };
+		BF46371028B8C7D5000A04A6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46370F28B8C7D5000A04A6 /* MenuViewController.swift */; };
 		BF7764D728B3869400F4C268 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764D628B3869400F4C268 /* CustomButton.swift */; };
 		BF7764DC28B387CE00F4C268 /* LevelLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764DB28B387CE00F4C268 /* LevelLabel.swift */; };
 		BF7764DF28B38C3C00F4C268 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */; };
@@ -40,6 +41,7 @@
 		BF3DA91728B77F880035A3A8 /* LoseLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseLogo.swift; sourceTree = "<group>"; };
 		BF3DA91A28B795D70035A3A8 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		BF3DA91D28B79DAD0035A3A8 /* UIImage+flashing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+flashing.swift"; sourceTree = "<group>"; };
+		BF46370F28B8C7D5000A04A6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		BF7764D628B3869400F4C268 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		BF7764DB28B387CE00F4C268 /* LevelLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelLabel.swift; sourceTree = "<group>"; };
 		BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
@@ -73,6 +75,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF46370D28B8C798000A04A6 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				BF46370E28B8C7A2000A04A6 /* Controller */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		BF46370E28B8C7A2000A04A6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF46370F28B8C7D5000A04A6 /* MenuViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		BF7764D128B36AE700F4C268 /* Custom views */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +126,7 @@
 			children = (
 				BFD6425D28B24EF900E58E79 /* Resources */,
 				BFD6425528B24E6100E58E79 /* Application */,
+				BF46370D28B8C798000A04A6 /* Menu */,
 				BFD6425928B24EA200E58E79 /* Game */,
 			);
 			path = Snakev2;
@@ -262,6 +281,7 @@
 				BF7764DF28B38C3C00F4C268 /* ScoreLabel.swift in Sources */,
 				BF7764E328B390B500F4C268 /* FieldImageView.swift in Sources */,
 				BFD6424128B24E4D00E58E79 /* AppDelegate.swift in Sources */,
+				BF46371028B8C7D5000A04A6 /* MenuViewController.swift in Sources */,
 				BF91FABF28B4C68500EC72E9 /* Game.swift in Sources */,
 				BF91FACB28B4C87400EC72E9 /* Direction.swift in Sources */,
 				BFD6426228B24F8D00E58E79 /* GameView.swift in Sources */,
