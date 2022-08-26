@@ -38,7 +38,7 @@ class GameViewController: UIViewController {
         gameView.pauseButton.addTarget(self, action: #selector(pauseGame), for: .touchUpInside)
         gameView.restartButton.addTarget(self, action: #selector(restartGame), for: .touchUpInside)
         for button in gameView.moveButtons {
-            button.addTarget(self, action: #selector(clickedMoveButton(sender:)), for: .touchUpInside)
+            button.addTarget(self, action: #selector(onMoveButtonClick(sender:)), for: .touchUpInside)
         }
     }
     
@@ -70,18 +70,8 @@ class GameViewController: UIViewController {
         gameView.scoreLabel.update(with: game.score)
     }
     
-    @objc func clickedMoveButton(sender: UIButton) {
-        guard game.status == .started else { return }
-        let currentSnakeDirection = Snake.shared.body[0].direction
-        
-        switch sender.tag {
-        case 0 where currentSnakeDirection == .up || currentSnakeDirection == .down: game.dX = -Piece.width; game.dY = 0
-        case 1 where currentSnakeDirection == .up || currentSnakeDirection == .down: game.dX = Piece.width; game.dY = 0
-        case 2 where currentSnakeDirection == .left || currentSnakeDirection == .right: game.dX = 0; game.dY = -Piece.height
-        case 3 where currentSnakeDirection == .left || currentSnakeDirection == .right: game.dX = 0; game.dY = Piece.height
-        default: return
-        }
-        
+    @objc func onMoveButtonClick(sender: UIButton) {
+        game.changeMovingDirection(senderTag: sender.tag)
         gameView.feedback.feedbackForMoveButton()
     }
     

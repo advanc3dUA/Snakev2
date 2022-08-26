@@ -28,7 +28,8 @@ class Game {
     
     var dX = Piece.width
     var dY = 0
-        
+    
+    //MARK:- Methods
     func start() {
         dX = Piece.width
         dY = 0
@@ -44,6 +45,19 @@ class Game {
         startTimer()
         status = .started
         NotificationCenter.default.post(name: .onGameStarted, object: nil)
+    }
+    
+    func changeMovingDirection(senderTag: Int) {
+        guard status == .started else { return }
+        let currentSnakeDirection = Snake.shared.body[0].direction
+        
+        switch senderTag {
+        case 0 where currentSnakeDirection == .up || currentSnakeDirection == .down: dX = -Piece.width; dY = 0
+        case 1 where currentSnakeDirection == .up || currentSnakeDirection == .down: dX = Piece.width; dY = 0
+        case 2 where currentSnakeDirection == .left || currentSnakeDirection == .right: dX = 0; dY = -Piece.height
+        case 3 where currentSnakeDirection == .left || currentSnakeDirection == .right: dX = 0; dY = Piece.height
+        default: return
+        }
     }
     
     func finish() {
