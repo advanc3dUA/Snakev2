@@ -29,6 +29,15 @@ class Game {
     var dX = Piece.width
     var dY = 0
     
+    var speedUpMode: Bool
+    var classicMode: Bool
+    
+    //MARK:- Init
+    init(speedUpMode: Bool, classicMode: Bool) {
+        self.speedUpMode = speedUpMode
+        self.classicMode = classicMode
+    }
+    
     //MARK:- Methods
     func start() {
         dX = Piece.width

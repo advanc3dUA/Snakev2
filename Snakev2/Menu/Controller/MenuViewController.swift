@@ -50,7 +50,6 @@ class MenuViewController: UIViewController {
     private func updateModSettings() {
         speedUpMode = UserDefaults.standard.bool(forKey: CaseUserDefaults.speedUpMode)
         classicMode = UserDefaults.standard.bool(forKey: CaseUserDefaults.classicMode)
-        print("speedup: \(speedUpMode), classicmode: \(classicMode)")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,6 +57,12 @@ class MenuViewController: UIViewController {
             let optionsVC = segue.destination as! OptionsTableViewController
             optionsVC.speedUpMode = self.speedUpMode
             optionsVC.classicMode = self.classicMode
+        }
+        
+        if segue.identifier == "game" {
+            let gameVC = segue.destination as! GameViewController
+            gameVC.speedUpMode = self.speedUpMode
+            gameVC.classicMode = self.classicMode
         }
     }
 }

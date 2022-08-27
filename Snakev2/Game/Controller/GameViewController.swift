@@ -12,7 +12,9 @@ let fieldHeight = 400
 
 class GameViewController: UIViewController {
     
-    let game = Game()
+    var speedUpMode: Bool?
+    var classicMode: Bool?
+    lazy var game = Game(speedUpMode: speedUpMode!, classicMode: classicMode!)
     var alert = UIAlertController()
     override func loadView() {
         self.view = GameView()
