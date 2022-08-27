@@ -52,7 +52,7 @@ class GameView: UIView {
     //MARK:- Methods
     private func setup() {
         self.backgroundColor = .black
-        self.translatesAutoresizingMaskIntoConstraints = false
+        self.translatesAutoresizingMaskIntoConstraints = true
         clipsToBounds = true
         self.setNeedsUpdateConstraints()
     }
@@ -85,34 +85,30 @@ class GameView: UIView {
         self.snakeView.last?.backgroundColor = .black
         self.gameField.addSubview(self.snakeView.last!)
         self.feedback.feedbackForPickUp()
-//
-//        game.newPiece.getNewPosition()
-//
-//        game.score += 1
-//        gameView.scoreLabel.update(with: game.score)
     }
     
     //MARK:- Constraints
     override func updateConstraints() {
         addAllConstraints()
         super.updateConstraints()
+        
     }
     
     private func addAllConstraints() {
         NSLayoutConstraint.activate([
             pauseButton.widthAnchor.constraint(equalToConstant: 45),
             pauseButton.heightAnchor.constraint(equalToConstant: 45),
-            pauseButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 56),
-            pauseButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 17*2),
+            pauseButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 56),
+            pauseButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 17*2),
             
             restartButton.widthAnchor.constraint(equalToConstant: 45),
             restartButton.heightAnchor.constraint(equalToConstant: 45),
-            restartButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -56),
-            restartButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 17*2),
+            restartButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -56),
+            restartButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 17*2),
             
             levelLabel.widthAnchor.constraint(equalToConstant: 108),
             levelLabel.heightAnchor.constraint(equalToConstant: 21),
-            levelLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 17*2),
+            levelLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 17*2),
             levelLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             scoreLabel.widthAnchor.constraint(equalToConstant: 108),
@@ -127,7 +123,7 @@ class GameView: UIView {
             
             moveButtons[3].widthAnchor.constraint(equalToConstant: 160),
             moveButtons[3].heightAnchor.constraint(equalToConstant: 60),
-            moveButtons[3].bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40),
+            moveButtons[3].bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             moveButtons[3].centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             moveButtons[2].widthAnchor.constraint(equalToConstant: 160),
@@ -137,17 +133,17 @@ class GameView: UIView {
             
             moveButtons[0].widthAnchor.constraint(equalToConstant: 70),
             moveButtons[0].heightAnchor.constraint(equalToConstant: 135),
-            moveButtons[0].bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40),
+            moveButtons[0].bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             moveButtons[0].rightAnchor.constraint(equalTo: moveButtons[3].leftAnchor, constant: -15),
             
             moveButtons[1].widthAnchor.constraint(equalToConstant: 70),
             moveButtons[1].heightAnchor.constraint(equalToConstant: 135),
-            moveButtons[1].bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40),
+            moveButtons[1].bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             moveButtons[1].leftAnchor.constraint(equalTo: moveButtons[3].rightAnchor, constant: 15),
             
             loseLogo.widthAnchor.constraint(equalToConstant: 277),
             loseLogo.heightAnchor.constraint(equalToConstant: 270),
-            loseLogo.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -10),
+            loseLogo.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -5),
             loseLogo.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }

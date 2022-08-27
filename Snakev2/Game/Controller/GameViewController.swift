@@ -9,13 +9,14 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    var gameView = GameView()
     let game = Game()
     var alert = UIAlertController()
+    override func loadView() {
+        self.view = GameView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameView = view as! GameView
     }
     
     override func viewWillLayoutSubviews() {
@@ -30,14 +31,19 @@ class GameViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print(viewIfLoaded)
         game.start()
     }
     
     //MARK:- Methods
+    func view() -> GameView {
+        return view as! GameView
+    }
+    
     func addTargets() {
-        gameView.pauseButton.addTarget(self, action: #selector(pauseGame), for: .touchUpInside)
-        gameView.restartButton.addTarget(self, action: #selector(restartGame), for: .touchUpInside)
-        for button in gameView.moveButtons {
+        view().pauseButton.addTarget(self, action: #selector(pauseGame), for: .touchUpInside)
+        view().restartButton.addTarget(self, action: #selector(restartGame), for: .touchUpInside)
+        for button in view().moveButtons {
             button.addTarget(self, action: #selector(onMoveButtonClick(sender:)), for: .touchUpInside)
         }
     }
@@ -46,33 +52,33 @@ class GameViewController: UIViewController {
         guard let timer = game.timer else { return }
         if timer.isValid {
             
-            for button in gameView.moveButtons {
+            for button in view().moveButtons {
                 button.isHidden = true
             }
             timer.invalidate()
-            gameView.restartButton.isHidden = true
-            gameView.pauseButton.isSelected = true
+            view().restartButton.isHidden = true
+            view().pauseButton.isSelected = true
         } else {
             
-            for button in gameView.moveButtons {
+            for button in view().moveButtons {
                 button.isHidden = false
             }
             game.startTimer()
-            gameView.restartButton.isHidden = false
-            gameView.pauseButton.isSelected = false
+            view().restartButton.isHidden = false
+            view().pauseButton.isSelected = false
         }
     }
     
     @objc func restartGame() {
         finishGame()
         game.start()
-        gameView.levelLabel.update(with: game.level)
-        gameView.scoreLabel.update(with: game.score)
+        view().levelLabel.update(with: game.level)
+        view().scoreLabel.update(with: game.score)
     }
     
     @objc func onMoveButtonClick(sender: UIButton) {
         game.changeMovingDirection(senderTag: sender.tag)
-        gameView.feedback.feedbackForMoveButton()
+        view().feedback.feedbackForMoveButton()
     }
     
     //MARK:- Observers
@@ -86,18 +92,18 @@ class GameViewController: UIViewController {
     }
     
     @objc private func gameStarted(_ notification: Notification) {
-        gameView.loseLogo.alpha = 0.0
-        gameView.pauseButton.alpha = 1.0
-        for button in gameView.moveButtons {
+        view().loseLogo.alpha = 0.0
+        view().pauseButton.alpha = 1.0
+        for button in view().moveButtons {
             button.alpha = 1.0
         }
     }
     
     @objc private func addNewPieceToSnake(_ notification: Notification) {
         if let x = notification.userInfo?["x"] as? Int, let y = notification.userInfo?["y"] as? Int {
-            gameView.addNewPieceToSnakeView(x: x, y: y)
+            view().addNewPieceToSnakeView(x: x, y: y)
         }
-        gameView.scoreLabel.update(with: game.score)
+        view().scoreLabel.update(with: game.score)
     }
     
     @objc private func updateSnakeViewPosition(_ notification: Notification) {
@@ -108,8 +114,8 @@ class GameViewController: UIViewController {
             for index in 0..<Snake.shared.body.count {
                 newCenterX = CGFloat(Snake.shared.body[index].x + Piece.width / 2)
                 newCenterY = CGFloat(Snake.shared.body[index].y + Piece.height / 2)
-                gameView.snakeView[index].center.x = newCenterX
-                gameView.snakeView[index].center.y = newCenterY
+                view().snakeView[index].center.x = newCenterX
+                view().snakeView[index].center.y = newCenterY
             }
         }
     }
@@ -117,9 +123,9 @@ class GameViewController: UIViewController {
     @objc func updateNewPiecePosition(_ notification: Notification) {
         if let x = notification.userInfo?["x"] as? Int, let y = notification.userInfo?["y"] as? Int {
             UIView.animate(withDuration: 1) { [unowned self] in
-                gameView.newPieceView.center.x = CGFloat(x + Piece.width / 2)
-                gameView.newPieceView.center.y = CGFloat(y + Piece.height / 2)
-                gameView.gameField.addSubview(gameView.newPieceView)
+                view().newPieceView.center.x = CGFloat(x + Piece.width / 2)
+                view().newPieceView.center.y = CGFloat(y + Piece.height / 2)
+                view().gameField.addSubview(view().newPieceView)
             }
         }
     }
@@ -127,10 +133,10 @@ class GameViewController: UIViewController {
     @objc func finishGame() {
         game.finish()
         
-        gameView.loseLogo.alpha = 1.0
-        gameView.eraseViews()
-        gameView.pauseButton.alpha = 0.0
-        for button in gameView.moveButtons {
+        view().loseLogo.alpha = 1.0
+        view().eraseViews()
+        view().pauseButton.alpha = 0.0
+        for button in view().moveButtons {
             button.alpha = 0.0
         }
         if Record.isNewRecord(game.score) {
@@ -139,9 +145,9 @@ class GameViewController: UIViewController {
     }
     
     @objc func levelUp() {
-        gameView.levelLabel.update(with: game.level)
-        gameView.levelLabel.flash(numberOfFlashes: 3)
-        for piece in gameView.snakeView {
+        view().levelLabel.update(with: game.level)
+        view().levelLabel.flash(numberOfFlashes: 3)
+        for piece in view().snakeView {
             piece.flash(numberOfFlashes: 3)
         }
     }
