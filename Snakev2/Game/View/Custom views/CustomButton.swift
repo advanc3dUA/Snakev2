@@ -26,11 +26,12 @@ class CustomButton: UIButton {
     
     func defaultSetup() {
         self.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        self.backgroundColor = .lightGray
+        self.backgroundColor = .darkGray
         self.clipsToBounds = true
         self.layer.cornerRadius = 5
         self.imageView?.layer.transform = CATransform3DMakeScale(1.5, 1.5, 1.5)
         self.setImage(image, for: .normal)
+        self.tintColor = .systemGreen
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     

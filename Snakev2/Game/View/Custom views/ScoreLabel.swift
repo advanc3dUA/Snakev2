@@ -22,9 +22,9 @@ class ScoreLabel: UILabel {
     
     private func defaultSetup() {
         self.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-        self.backgroundColor = .lightGray
+        self.backgroundColor = .darkGray
         self.font = UIFont.boldSystemFont(ofSize: 20)
-        self.textColor = .systemBlue
+        self.textColor = .systemGreen
         self.textAlignment = .center
         self.translatesAutoresizingMaskIntoConstraints = false
     }

@@ -17,7 +17,8 @@ class GameView: UIView {
     var scoreLabel = ScoreLabel()
     var moveButtons: [CustomButton] = {
         var array = [CustomButton]()
-        let arrayOfImages = ["arrow.backward", "arrow.forward", "arrow.up", "arrow.down"]
+        //let arrayOfImages = ["arrow.backward", "arrow.forward", "arrow.up", "arrow.down"]
+        let arrayOfImages = ["arrowtriangle.left", "arrowtriangle.right", "arrowtriangle.up", "arrowtriangle.down"]
         for index in 0...3 {
             let button = CustomButton(image: arrayOfImages[index])
             button.tag = index
@@ -142,12 +143,12 @@ class GameView: UIView {
         NSLayoutConstraint.activate([
             pauseButton.widthAnchor.constraint(equalToConstant: 45),
             pauseButton.heightAnchor.constraint(equalToConstant: 45),
-            pauseButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 56),
+            pauseButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 50),
             pauseButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 17*2),
             
             restartButton.widthAnchor.constraint(equalToConstant: 45),
             restartButton.heightAnchor.constraint(equalToConstant: 45),
-            restartButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -56),
+            restartButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             restartButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 17*2),
             
             levelLabel.widthAnchor.constraint(equalToConstant: 108),
@@ -167,7 +168,7 @@ class GameView: UIView {
             
             moveButtons[3].widthAnchor.constraint(equalToConstant: 160),
             moveButtons[3].heightAnchor.constraint(equalToConstant: 60),
-            moveButtons[3].bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            moveButtons[3].bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             moveButtons[3].centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             moveButtons[2].widthAnchor.constraint(equalToConstant: 160),
@@ -177,12 +178,12 @@ class GameView: UIView {
             
             moveButtons[0].widthAnchor.constraint(equalToConstant: 70),
             moveButtons[0].heightAnchor.constraint(equalToConstant: 135),
-            moveButtons[0].bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            moveButtons[0].bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             moveButtons[0].rightAnchor.constraint(equalTo: moveButtons[3].leftAnchor, constant: -15),
             
             moveButtons[1].widthAnchor.constraint(equalToConstant: 70),
             moveButtons[1].heightAnchor.constraint(equalToConstant: 135),
-            moveButtons[1].bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            moveButtons[1].bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             moveButtons[1].leftAnchor.constraint(equalTo: moveButtons[3].rightAnchor, constant: 15),
             
             loseLogo.widthAnchor.constraint(equalToConstant: 277),

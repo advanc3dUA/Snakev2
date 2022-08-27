@@ -27,7 +27,8 @@ class FieldImageView: UIImageView {
         self.backgroundColor = .white
         self.layer.masksToBounds = false
         self.layer.borderWidth = CGFloat(Piece.width)
-        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.borderColor = UIColor.darkGray.cgColor
+        self.layer.cornerRadius = 5
     }
     
     override func draw(_ rect: CGRect) {

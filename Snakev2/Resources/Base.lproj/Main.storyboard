@@ -254,6 +254,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="940-gT-Kgl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -265,6 +266,7 @@
             <point key="canvasLocation" x="-1123.1884057971015" y="118.52678571428571"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="systemGreenColor"/>
     <resources>
         <image name="snake-logo" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
