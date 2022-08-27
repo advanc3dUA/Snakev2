@@ -86,8 +86,7 @@ class GameViewController: UIViewController {
     }
     
     @objc func onMoveButtonClick(sender: UIButton) {
-        game.changeMovingDirection(senderTag: sender.tag)
-        view().feedback.feedbackForMoveButton()
+        game.changeMovingDirection(sender.tag)
     }
     
     //MARK:- Observers
@@ -98,6 +97,7 @@ class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateNewPiecePosition(_:)), name: .onPieceGotNewPosition, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(finishGameAndSaveRecord), name: .onGameLost, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(levelUp), name: .onLevelUp, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(feedback), name: .onSuccessfulSnakeTurn, object: nil)
     }
     
     @objc private func gameStarted(_ notification: Notification) {
@@ -177,6 +177,11 @@ class GameViewController: UIViewController {
         for piece in view().snakeView {
             piece.flash(numberOfFlashes: 3)
         }
+    }
+    
+    @objc func feedback() {
+        view().feedback.feedbackForMoveButton()
+        print("feedback")
     }
 }
 

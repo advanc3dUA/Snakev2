@@ -28,11 +28,11 @@ extension NSNotification.Name {
         return .init("onPieceGotNewPosition")
     }
     
-    static var onPickupNewPiece: Notification.Name {
-        return .init("onPickupNewPiece")
-    }
-    
     static var onLevelUp: Notification.Name {
         return self.init("onLevelUp")
+    }
+    
+    static var onSuccessfulSnakeTurn: Notification.Name {
+        return self.init("onSuccessfulSnakeTurn")
     }
 }

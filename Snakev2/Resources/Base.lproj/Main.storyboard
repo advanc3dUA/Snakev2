@@ -58,7 +58,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="record here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEf-k3-go0">
-                                <rect key="frame" x="150" y="747" width="114" height="21"/>
+                                <rect key="frame" x="150" y="759" width="114" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="114" id="D0N-e5-42Y"/>
                                 </constraints>
@@ -67,7 +67,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current record:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qm3-Nz-vu1">
-                                <rect key="frame" x="150" y="723" width="114" height="21"/>
+                                <rect key="frame" x="150" y="735" width="114" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="114" id="ZXf-HB-Nhh"/>
                                 </constraints>
@@ -83,7 +83,7 @@
                             <constraint firstItem="lxg-FM-Kbx" firstAttribute="top" secondItem="WLo-Jt-MaM" secondAttribute="bottom" constant="42" id="5Sd-zs-b4N"/>
                             <constraint firstItem="WLo-Jt-MaM" firstAttribute="top" secondItem="hLj-kq-Q9Z" secondAttribute="bottom" constant="43" id="9Fg-Kb-ciK"/>
                             <constraint firstItem="vRw-PY-ICd" firstAttribute="top" secondItem="8TJ-Hl-Vkg" secondAttribute="top" constant="45" id="9LU-Ft-voI"/>
-                            <constraint firstItem="8TJ-Hl-Vkg" firstAttribute="bottom" secondItem="ZEf-k3-go0" secondAttribute="bottom" constant="94" id="A6e-6r-Tsh"/>
+                            <constraint firstItem="8TJ-Hl-Vkg" firstAttribute="bottom" secondItem="ZEf-k3-go0" secondAttribute="bottom" constant="82" id="A6e-6r-Tsh"/>
                             <constraint firstItem="ZEf-k3-go0" firstAttribute="centerX" secondItem="8TJ-Hl-Vkg" secondAttribute="centerX" id="GU3-VF-Srz"/>
                             <constraint firstItem="hLj-kq-Q9Z" firstAttribute="centerX" secondItem="8TJ-Hl-Vkg" secondAttribute="centerX" id="HcD-OI-VDR"/>
                             <constraint firstItem="hLj-kq-Q9Z" firstAttribute="top" secondItem="vRw-PY-ICd" secondAttribute="bottom" constant="58" id="KJR-rT-ujL"/>
@@ -254,7 +254,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="940-gT-Kgl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemGreenColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

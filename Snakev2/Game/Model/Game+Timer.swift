@@ -21,7 +21,6 @@ extension Game {
                 Snake.pickUpNewPiece(newPiece)
                 newPiece.getNewPosition()
                 score += 1
-                print("picked up")
                 NotificationCenter.default.post(name: .onSnakeAppend, object: nil, userInfo: ["x": Snake.shared.body.last?.x as Any, "y": Snake.shared.body.last?.y as Any])
                 
                 if speedUpMode && isSpeedUpNeeded() {
