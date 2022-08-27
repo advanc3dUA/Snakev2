@@ -111,6 +111,14 @@ class GameViewController: UIViewController {
     @objc private func addNewPieceToSnake(_ notification: Notification) {
         if let x = notification.userInfo?["x"] as? Int, let y = notification.userInfo?["y"] as? Int {
             view().addNewPieceToSnakeView(x: x, y: y)
+            
+            if classicMode == true {
+                view().snakeView.last?.backgroundColor = .black
+            } else {
+                if view().snakeView.count == 1 {
+                    view().snakeView[0].image = SnakeImagesDict.shared["head_right"]
+                }
+            }
         }
         view().scoreLabel.update(with: game.score)
     }

@@ -82,7 +82,7 @@ class GameView: UIView {
     
     func addNewPieceToSnakeView(x: Int, y: Int) {
         self.snakeView.append(UIImageView(frame: CGRect(x: x, y: y, width: Piece.width, height: Piece.height)))
-        self.snakeView.last?.backgroundColor = .black
+        //self.snakeView.last?.backgroundColor = .black
         self.gameField.addSubview(self.snakeView.last!)
         self.feedback.feedbackForPickUp()
     }
