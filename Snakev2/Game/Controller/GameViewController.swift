@@ -96,7 +96,7 @@ class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(addNewPieceToSnake(_:)), name: .onSnakeAppend, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateSnakeViewPosition(_:)), name: .onSnakeMove, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateNewPiecePosition(_:)), name: .onPieceGotNewPosition, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(finishGame), name: .onGameLost, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(finishGameAndSaveRecord), name: .onGameLost, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(levelUp), name: .onLevelUp, object: nil)
     }
     
@@ -138,8 +138,7 @@ class GameViewController: UIViewController {
             }
         }
     }
-    
-    @objc func finishGame() {
+    private func finishGame() {
         game.finish()
         
         view().loseLogo.alpha = 1.0
@@ -148,6 +147,10 @@ class GameViewController: UIViewController {
         for button in view().moveButtons {
             button.alpha = 0.0
         }
+    }
+    
+    @objc func finishGameAndSaveRecord() {
+        finishGame()
         if Record.isNewRecord(game.score) {
             createAlert()
         }

@@ -24,7 +24,7 @@ extension Game {
                 print("picked up")
                 NotificationCenter.default.post(name: .onSnakeAppend, object: nil, userInfo: ["x": Snake.shared.body.last?.x as Any, "y": Snake.shared.body.last?.y as Any])
                 
-                if isSpeedUpNeeded() {
+                if speedUpMode && isSpeedUpNeeded() {
                     speedUp()
                     NotificationCenter.default.post(name: .onLevelUp, object: nil)
                 }
