@@ -10,4 +10,6 @@ import Foundation
 enum CaseUserDefaults {
     static let record = "record"
     static let playerName = "playerName"
+    static let speedUpMode = "speedUpMode"
+    static let classicMode = "classicMode"
 }
