@@ -7,6 +7,7 @@
 
 import UIKit
 
+@IBDesignable
 class FieldImageView: UIImageView {
     
     static let width = 300
@@ -15,7 +16,6 @@ class FieldImageView: UIImageView {
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         setup()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -29,13 +29,15 @@ class FieldImageView: UIImageView {
         self.layer.borderWidth = CGFloat(Piece.width)
         self.layer.borderColor = UIColor.lightGray.cgColor
     }
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
+    
     override func draw(_ rect: CGRect) {
-        // Drawing code
+        print("draw started")
+        let pathRect = CGRect(x: 40, y: 40, width: rect.width - 50, height: rect.height - 50)
+        let path = UIBezierPath(roundedRect: pathRect, cornerRadius: 5)
+        let color = UIColor.red
+        color.setFill()
+        path.fill()
+        print("draw finished")
     }
-    */
 
 }

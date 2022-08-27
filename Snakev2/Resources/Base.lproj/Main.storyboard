@@ -33,7 +33,7 @@
                                     <color key="titleColor" systemColor="systemGreenColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="push" id="BXc-oS-PQI"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="BXc-oS-PQI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLo-Jt-MaM">
@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="705.79710144927537" y="118.52678571428571"/>
+            <point key="canvasLocation" x="704.34782608695662" y="118.52678571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YFq-2o-NVa">
