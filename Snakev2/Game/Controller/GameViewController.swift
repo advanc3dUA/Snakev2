@@ -114,10 +114,6 @@ class GameViewController: UIViewController {
             
             if classicMode == true {
                 view().snakeView.last?.backgroundColor = .black
-            } else {
-                if view().snakeView.count == 1 {
-                    view().snakeView[0].image = SnakeImagesDict.shared["head_right"]
-                }
             }
         }
         view().scoreLabel.update(with: game.score)
@@ -134,11 +130,22 @@ class GameViewController: UIViewController {
                 view().snakeView[index].center.x = newCenterX
                 view().snakeView[index].center.y = newCenterY
             }
+            if classicMode == false {
+                view().rotateHead()
+                view().rotateBody()
+                view().rotateTale()
+                
+            }
         }
     }
     
     @objc func updateNewPiecePosition(_ notification: Notification) {
         if let x = notification.userInfo?["x"] as? Int, let y = notification.userInfo?["y"] as? Int {
+            if classicMode == true {
+                view().newPieceView.backgroundColor = .red
+            } else {
+                view().newPieceView.image = SnakeImagesDict.shared["apple"]
+            }
             UIView.animate(withDuration: 1) { [unowned self] in
                 view().newPieceView.center.x = CGFloat(x + Piece.width / 2)
                 view().newPieceView.center.y = CGFloat(y + Piece.height / 2)

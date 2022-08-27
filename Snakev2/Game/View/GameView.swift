@@ -28,7 +28,6 @@ class GameView: UIView {
     var snakeView = [UIImageView]()
     var newPieceView: UIImageView = {
         let piece = UIImageView(frame: CGRect(x: 0, y: 0, width: Piece.width, height: Piece.height))
-        piece.backgroundColor = .red
         return piece
     }()
     var loseLogo = LoseLogo()
@@ -82,9 +81,54 @@ class GameView: UIView {
     
     func addNewPieceToSnakeView(x: Int, y: Int) {
         self.snakeView.append(UIImageView(frame: CGRect(x: x, y: y, width: Piece.width, height: Piece.height)))
-        //self.snakeView.last?.backgroundColor = .black
         self.gameField.addSubview(self.snakeView.last!)
         self.feedback.feedbackForPickUp()
+    }
+    
+    //MARK:- Rotating
+    func rotateHead() {
+        
+        guard let headDirection = Snake.shared.body[0].direction else { return }
+        switch headDirection {
+        case .right: transition(indexOfImageView: 0, to: "head_right")
+        case .left: transition(indexOfImageView: 0, to: "head_left")
+        case .up: transition(indexOfImageView: 0, to: "head_up")
+        case .down: transition(indexOfImageView: 0, to: "head_down")
+        }
+    }
+    
+
+    func rotateBody() {
+        guard Snake.shared.body.count > 2 else { return }
+        for index in 1...Snake.shared.body.endIndex - 2 {
+            guard let bodyPartDirection = Snake.shared.body[index].direction else { return }
+            switch (bodyPartDirection) {
+            case .left: transition(indexOfImageView: index, to: "body_horizontal")
+            case .right: transition(indexOfImageView: index, to: "body_horizontal")
+            case .up: transition(indexOfImageView: index, to: "body_vertical")
+            case .down: transition(indexOfImageView: index, to: "body_vertical")
+            }
+        }
+    }
+
+    func rotateTale() {
+        guard snakeView.count > 1 else { return }
+        guard let taleIndex = snakeView.lastIndex(of: snakeView.last!) else { return }
+        guard let taleDirection = Snake.shared.body[taleIndex].direction else { return }
+        switch taleDirection {
+        case .left: transition(indexOfImageView: taleIndex, to: "tail_right")
+        case .right: transition(indexOfImageView: taleIndex, to: "tail_left")
+        case .down: transition(indexOfImageView: taleIndex, to: "tail_up")
+        case .up: transition(indexOfImageView: taleIndex, to: "tail_down")
+        }
+    }
+    
+    func transition(indexOfImageView: Int, to imageName: String) {
+        UIView.transition(with: snakeView[indexOfImageView],
+                          duration: 0.1,
+                          options: [.beginFromCurrentState, .curveEaseOut]) {
+            self.snakeView[indexOfImageView].image = SnakeImagesDict.shared[imageName]
+        }
     }
     
     //MARK:- Constraints
