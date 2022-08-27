@@ -14,10 +14,10 @@
 		BF3DA91B28B795D70035A3A8 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DA91A28B795D70035A3A8 /* Feedback.swift */; };
 		BF3DA91E28B79DAD0035A3A8 /* UIImage+flashing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DA91D28B79DAD0035A3A8 /* UIImage+flashing.swift */; };
 		BF46371028B8C7D5000A04A6 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46370F28B8C7D5000A04A6 /* MenuViewController.swift */; };
+		BF6DE52028BA0A5A00CFF8EE /* FieldImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DE51F28BA0A5A00CFF8EE /* FieldImageView.swift */; };
 		BF7764D728B3869400F4C268 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764D628B3869400F4C268 /* CustomButton.swift */; };
 		BF7764DC28B387CE00F4C268 /* LevelLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764DB28B387CE00F4C268 /* LevelLabel.swift */; };
 		BF7764DF28B38C3C00F4C268 /* ScoreLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */; };
-		BF7764E328B390B500F4C268 /* FieldImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7764E228B390B500F4C268 /* FieldImageView.swift */; };
 		BF91FABF28B4C68500EC72E9 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91FABE28B4C68500EC72E9 /* Game.swift */; };
 		BF91FAC228B4C6CE00EC72E9 /* GameStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91FAC128B4C6CE00EC72E9 /* GameStatus.swift */; };
 		BF91FAC528B4C70F00EC72E9 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91FAC428B4C70F00EC72E9 /* Piece.swift */; };
@@ -42,10 +42,10 @@
 		BF3DA91A28B795D70035A3A8 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		BF3DA91D28B79DAD0035A3A8 /* UIImage+flashing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+flashing.swift"; sourceTree = "<group>"; };
 		BF46370F28B8C7D5000A04A6 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		BF6DE51F28BA0A5A00CFF8EE /* FieldImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldImageView.swift; sourceTree = "<group>"; };
 		BF7764D628B3869400F4C268 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		BF7764DB28B387CE00F4C268 /* LevelLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelLabel.swift; sourceTree = "<group>"; };
 		BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLabel.swift; sourceTree = "<group>"; };
-		BF7764E228B390B500F4C268 /* FieldImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldImageView.swift; sourceTree = "<group>"; };
 		BF91FABE28B4C68500EC72E9 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		BF91FAC128B4C6CE00EC72E9 /* GameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
 		BF91FAC428B4C70F00EC72E9 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 				BF7764D628B3869400F4C268 /* CustomButton.swift */,
 				BF7764DE28B38C3C00F4C268 /* ScoreLabel.swift */,
 				BF7764DB28B387CE00F4C268 /* LevelLabel.swift */,
-				BF7764E228B390B500F4C268 /* FieldImageView.swift */,
+				BF6DE51F28BA0A5A00CFF8EE /* FieldImageView.swift */,
 				BF3DA91728B77F880035A3A8 /* LoseLogo.swift */,
 				BF3DA91A28B795D70035A3A8 /* Feedback.swift */,
 				BF3DA91D28B79DAD0035A3A8 /* UIImage+flashing.swift */,
@@ -279,7 +279,6 @@
 				BF7764D728B3869400F4C268 /* CustomButton.swift in Sources */,
 				BF3DA91E28B79DAD0035A3A8 /* UIImage+flashing.swift in Sources */,
 				BF7764DF28B38C3C00F4C268 /* ScoreLabel.swift in Sources */,
-				BF7764E328B390B500F4C268 /* FieldImageView.swift in Sources */,
 				BFD6424128B24E4D00E58E79 /* AppDelegate.swift in Sources */,
 				BF46371028B8C7D5000A04A6 /* MenuViewController.swift in Sources */,
 				BF91FABF28B4C68500EC72E9 /* Game.swift in Sources */,
@@ -287,6 +286,7 @@
 				BFD6426228B24F8D00E58E79 /* GameView.swift in Sources */,
 				BFD6424328B24E4D00E58E79 /* SceneDelegate.swift in Sources */,
 				BF91FAC828B4C72900EC72E9 /* Snake.swift in Sources */,
+				BF6DE52028BA0A5A00CFF8EE /* FieldImageView.swift in Sources */,
 				BF91FAC528B4C70F00EC72E9 /* Piece.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

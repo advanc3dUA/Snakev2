@@ -20,6 +20,7 @@ class LoseLogo: UIImageView {
     
     func setup() {
         self.image = UIImage(named: "wasted2")
+        self.alpha = 0.0
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 }

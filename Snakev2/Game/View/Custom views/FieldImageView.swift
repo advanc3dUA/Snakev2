@@ -2,29 +2,40 @@
 //  FieldImageView.swift
 //  Snakev2
 //
-//  Created by advanc3d on 22.08.2022.
+//  Created by advanc3d on 27.08.2022.
 //
 
 import UIKit
 
-class FieldImageView {
+class FieldImageView: UIImageView {
+    
     static let width = 300
     static let height = 400
-    static var shared = FieldImageView()
-    let field: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 0,
-                                                  y: 0,
-                                                  width: 0,
-                                                  height: 0))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .white
-        imageView.layer.masksToBounds = false
-        imageView.layer.borderWidth = CGFloat(Piece.width)
-        imageView.layer.borderColor = UIColor.lightGray.cgColor
-        return imageView
-    }()
     
-    private init() { }
+    init() {
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        setup()
+        
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
+    private func setup() {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = .white
+        self.layer.masksToBounds = false
+        self.layer.borderWidth = CGFloat(Piece.width)
+        self.layer.borderColor = UIColor.lightGray.cgColor
+    }
+
+    /*
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
+    }
+    */
+
 }

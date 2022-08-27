@@ -7,6 +7,9 @@
 
 import UIKit
 
+let fieldWidth = 300
+let fieldHeight = 400
+
 class GameViewController: UIViewController {
     
     let game = Game()
