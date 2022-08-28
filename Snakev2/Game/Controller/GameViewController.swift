@@ -120,7 +120,7 @@ class GameViewController: UIViewController {
         guard game.status == .started else { return }
         var newCenterX: CGFloat = 0
         var newCenterY: CGFloat = 0
-        UIView.animate(withDuration: game.moveSnakeDuration) { [unowned self] in
+        UIView.animate(withDuration: game.updatePiecePositionDuration) { [unowned self] in
             for index in 0..<Snake.shared.body.count {
                 newCenterX = CGFloat(Snake.shared.body[index].x + Piece.width / 2)
                 newCenterY = CGFloat(Snake.shared.body[index].y + Piece.height / 2)
@@ -143,21 +143,27 @@ class GameViewController: UIViewController {
             } else {
                 view().newPieceView.image = SnakeImagesDict.shared["apple"]
             }
+
             UIView.animate(withDuration: 1) { [unowned self] in
                 view().newPieceView.center.x = CGFloat(x + Piece.width / 2)
                 view().newPieceView.center.y = CGFloat(y + Piece.height / 2)
                 view().gameField.addSubview(view().newPieceView)
+                
+            } completion: { [unowned self] (finish) in
+                view().newPieceView.flash(numberOfFlashes: 1)
             }
+
         }
     }
     private func finishGame() {
         game.finish()
-        
-        view().loseLogo.alpha = 1.0
         view().eraseViews()
-        view().pauseButton.alpha = 0.0
-        for button in view().moveButtons {
-            button.alpha = 0.0
+        UIView.animate(withDuration: 1) { [unowned self] in
+            view().loseLogo.alpha = 1.0
+            view().pauseButton.alpha = 0.0
+            for button in view().moveButtons {
+                button.alpha = 0.0
+            }
         }
     }
     

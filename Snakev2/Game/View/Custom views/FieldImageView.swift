@@ -10,9 +10,6 @@ import UIKit
 @IBDesignable
 class FieldImageView: UIImageView {
     
-    static let width = 300
-    static let height = 400
-    
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         setup()
@@ -30,7 +27,7 @@ class FieldImageView: UIImageView {
         self.layer.borderColor = UIColor.darkGray.cgColor
         self.layer.cornerRadius = 5
     }
-    
+    //Doesn't work. Why?
     override func draw(_ rect: CGRect) {
         print("draw started")
         let pathRect = CGRect(x: 40, y: 40, width: rect.width - 50, height: rect.height - 50)

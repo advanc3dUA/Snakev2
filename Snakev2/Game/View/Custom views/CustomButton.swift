@@ -9,14 +9,14 @@ import UIKit
 
 class CustomButton: UIButton {
     var image = UIImage()
-    init(image: String, changesColorOnSelection: Bool = false) {
+    init(image: String, hasTwoStates: Bool = false) {
         super.init(frame: .zero)
         guard let imageToSet = UIImage(systemName: image) else { print("wrong button image name"); return }
         self.image = imageToSet
         defaultSetup()
         
-        if changesColorOnSelection {
-            additionalSetupForPauseButton()
+        if hasTwoStates {
+            additionalSetup()
         }
     }
     
@@ -29,13 +29,13 @@ class CustomButton: UIButton {
         self.backgroundColor = .darkGray
         self.clipsToBounds = true
         self.layer.cornerRadius = 5
-        self.imageView?.layer.transform = CATransform3DMakeScale(1.5, 1.5, 1.5)
+        self.imageView?.layer.transform = CATransform3DMakeScale(2, 2, 2)
         self.setImage(image, for: .normal)
         self.tintColor = .systemGreen
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func additionalSetupForPauseButton() {
+    func additionalSetup() {
         self.setImage(UIImage(systemName: "play.circle"), for: .selected)
     }
 }

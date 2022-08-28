@@ -12,7 +12,7 @@ class Game {
     var level = 1
     var playerName = ""
     var timerTimeInterval = 0.0
-    var moveSnakeDuration = 0.0
+    var updatePiecePositionDuration = 0.0
     
     var newPiece = Piece()
     var status: GameStatus = .lost
@@ -38,7 +38,7 @@ class Game {
         level = 1
         playerName = "unknown hero"
         timerTimeInterval = 0.3
-        moveSnakeDuration = 0.35
+        updatePiecePositionDuration = 0.35
         
         newPiece.getNewPosition()
         Snake.createSnake()
@@ -50,13 +50,12 @@ class Game {
     
     func changeMovingDirection(_ senderTag: Int) {
         guard status == .started else { return }
-        let currentSnakeDirection = Snake.shared.body[0].direction
-     
+        let headDirection = Snake.shared.body[0].direction
         switch senderTag {
-        case 0 where currentSnakeDirection == .up || currentSnakeDirection == .down: dX = -Piece.width; dY = 0; feedbackRequest()
-        case 1 where currentSnakeDirection == .up || currentSnakeDirection == .down: dX = Piece.width; dY = 0; feedbackRequest()
-        case 2 where currentSnakeDirection == .left || currentSnakeDirection == .right: dX = 0; dY = -Piece.height; feedbackRequest()
-        case 3 where currentSnakeDirection == .left || currentSnakeDirection == .right: dX = 0; dY = Piece.height; feedbackRequest()
+        case 0 where headDirection == .up || headDirection == .down: dX = -Piece.width; dY = 0; feedbackRequest()
+        case 1 where headDirection == .up || headDirection == .down: dX = Piece.width; dY = 0; feedbackRequest()
+        case 2 where headDirection == .left || headDirection == .right: dX = 0; dY = -Piece.height; feedbackRequest()
+        case 3 where headDirection == .left || headDirection == .right: dX = 0; dY = Piece.height; feedbackRequest()
         default: return
         }
     }

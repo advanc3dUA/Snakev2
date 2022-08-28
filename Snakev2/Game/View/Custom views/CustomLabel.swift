@@ -15,7 +15,7 @@ class CustomLabel: UILabel {
     init(defaultText: String) {
         self.defaultText = defaultText
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        self.defaultSetup()
+        self.setup()
     }
     
     required init?(coder: NSCoder) {
@@ -23,7 +23,7 @@ class CustomLabel: UILabel {
         super.init(coder: coder)
     }
     
-    private func defaultSetup() {
+    private func setup() {
         self.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         self.backgroundColor = .darkGray
         self.font = UIFont.boldSystemFont(ofSize: 20)

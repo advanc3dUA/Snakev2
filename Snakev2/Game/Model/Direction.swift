@@ -7,6 +7,9 @@
 
 import Foundation
 
-enum Direction {
-    case up, down, left, right
+enum Direction: String {
+    case up = "_up"
+    case down = "_down"
+    case left = "_left"
+    case right = "_right"
 }

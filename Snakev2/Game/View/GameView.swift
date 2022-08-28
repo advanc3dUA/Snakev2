@@ -11,7 +11,7 @@ class GameView: UIView {
     
     //MARK:- Variables
     let gameField = FieldImageView()
-    var pauseButton = CustomButton(image: "pause.circle", changesColorOnSelection: true)
+    var pauseButton = CustomButton(image: "pause.circle", hasTwoStates: true)
     var restartButton = CustomButton(image: "repeat")
     var levelLabel = CustomLabel(defaultText: "Level: ")
     var scoreLabel = CustomLabel(defaultText: "Score: ")
@@ -57,6 +57,7 @@ class GameView: UIView {
     }
     
     func addAllSubviews() {
+        
         addSubview(pauseButton)
         addSubview(restartButton)
         addSubview(levelLabel)
@@ -87,7 +88,6 @@ class GameView: UIView {
     
     //MARK:- Rotating
     func rotateHead() {
-        
         guard let headDirection = Snake.shared.body[0].direction else { return }
         switch headDirection {
         case .right: transition(indexOfImageView: 0, to: "head_right")
@@ -96,11 +96,10 @@ class GameView: UIView {
         case .down: transition(indexOfImageView: 0, to: "head_down")
         }
     }
-    
 
     func rotateBody() {
         guard Snake.shared.body.count > 2 else { return }
-        for index in 1...Snake.shared.body.endIndex - 2 {
+        for index in 1...snakeView.endIndex - 2 {
             guard let bodyPartDirection = Snake.shared.body[index].direction else { return }
             switch (bodyPartDirection) {
             case .left: transition(indexOfImageView: index, to: "body_horizontal")

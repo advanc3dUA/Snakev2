@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Piece {
+struct Piece: Equatable {
     static let width = 20
     static let height = 20
     

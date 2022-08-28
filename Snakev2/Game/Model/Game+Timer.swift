@@ -28,7 +28,6 @@ extension Game {
                     NotificationCenter.default.post(name: .onLevelUp, object: nil)
                 }
             }
-            
             NotificationCenter.default.post(name: .onSnakeMove, object: nil)
         })
         
@@ -48,7 +47,7 @@ extension Game {
     private func speedUp() {
         level += 1
         timerTimeInterval *= 0.95
-        moveSnakeDuration *= 0.95
+        updatePiecePositionDuration *= 0.95
         
         cancelTimer()
         startTimer()
