@@ -24,10 +24,6 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addTargets()

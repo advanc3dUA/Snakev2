@@ -15,15 +15,7 @@ class Game {
     var moveSnakeDuration = 0.0
     
     var newPiece = Piece()
-    var status: GameStatus = .lost {
-        willSet {
-            if newValue == .lost {
-                print("status changed to lost")
-            } else {
-                print("status changed to started")
-            }
-        }
-    }
+    var status: GameStatus = .lost
     var timer: Timer?
     
     var dX = Piece.width
@@ -61,10 +53,10 @@ class Game {
         let currentSnakeDirection = Snake.shared.body[0].direction
      
         switch senderTag {
-        case 0 where currentSnakeDirection == .up || currentSnakeDirection == .down: dX = -Piece.width; dY = 0; postSuccessfulSnakeTurnNotification()
-        case 1 where currentSnakeDirection == .up || currentSnakeDirection == .down: dX = Piece.width; dY = 0; postSuccessfulSnakeTurnNotification()
-        case 2 where currentSnakeDirection == .left || currentSnakeDirection == .right: dX = 0; dY = -Piece.height; postSuccessfulSnakeTurnNotification()
-        case 3 where currentSnakeDirection == .left || currentSnakeDirection == .right: dX = 0; dY = Piece.height; postSuccessfulSnakeTurnNotification()
+        case 0 where currentSnakeDirection == .up || currentSnakeDirection == .down: dX = -Piece.width; dY = 0; feedbackRequest()
+        case 1 where currentSnakeDirection == .up || currentSnakeDirection == .down: dX = Piece.width; dY = 0; feedbackRequest()
+        case 2 where currentSnakeDirection == .left || currentSnakeDirection == .right: dX = 0; dY = -Piece.height; feedbackRequest()
+        case 3 where currentSnakeDirection == .left || currentSnakeDirection == .right: dX = 0; dY = Piece.height; feedbackRequest()
         default: return
         }
     }
@@ -75,7 +67,7 @@ class Game {
         Snake.eraseSnake()
     }
     
-    private func postSuccessfulSnakeTurnNotification() {
+    private func feedbackRequest() {
         NotificationCenter.default.post(name: .onSuccessfulSnakeTurn, object: nil)
     }
 }
