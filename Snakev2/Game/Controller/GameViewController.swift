@@ -106,6 +106,7 @@ class GameViewController: UIViewController {
         for button in view().moveButtons {
             button.alpha = 1.0
         }
+        view().levelLabel.update(with: game.level)
     }
     
     @objc private func addNewPieceToSnake(_ notification: Notification) {
@@ -181,7 +182,6 @@ class GameViewController: UIViewController {
     
     @objc func feedback() {
         view().feedback.feedbackForMoveButton()
-        print("feedback")
     }
 }
 

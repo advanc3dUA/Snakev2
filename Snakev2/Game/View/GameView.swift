@@ -13,11 +13,10 @@ class GameView: UIView {
     let gameField = FieldImageView()
     var pauseButton = CustomButton(image: "pause.circle", changesColorOnSelection: true)
     var restartButton = CustomButton(image: "repeat")
-    var levelLabel = LevelLabel()
-    var scoreLabel = ScoreLabel()
+    var levelLabel = CustomLabel(defaultText: "Level: ")
+    var scoreLabel = CustomLabel(defaultText: "Score: ")
     var moveButtons: [CustomButton] = {
         var array = [CustomButton]()
-        //let arrayOfImages = ["arrow.backward", "arrow.forward", "arrow.up", "arrow.down"]
         let arrayOfImages = ["arrowtriangle.left", "arrowtriangle.right", "arrowtriangle.up", "arrowtriangle.down"]
         for index in 0...3 {
             let button = CustomButton(image: arrayOfImages[index])

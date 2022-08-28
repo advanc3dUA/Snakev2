@@ -1,22 +1,25 @@
 //
-//  ScoreLabel.swift
+//  CustomLabel.swift
 //  Snakev2
 //
-//  Created by advanc3d on 22.08.2022.
+//  Created by advanc3d on 28.08.2022.
 //
+
+import Foundation
 
 import UIKit
 
-class ScoreLabel: UILabel {
-    var scoreText = "Score: "
+class CustomLabel: UILabel {
+    var defaultText: String
     
-    init() {
+    init(defaultText: String) {
+        self.defaultText = defaultText
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        self.text = scoreText + String(0)
         self.defaultSetup()
     }
     
     required init?(coder: NSCoder) {
+        self.defaultText = "defaultText"
         super.init(coder: coder)
     }
     
@@ -29,7 +32,7 @@ class ScoreLabel: UILabel {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func update(with newScore: Int) {
-        self.text = scoreText + String(newScore)
+    func update(with newValue: Int) {
+        self.text = defaultText + String(newValue)
     }
 }
