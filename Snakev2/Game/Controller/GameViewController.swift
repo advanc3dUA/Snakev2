@@ -76,6 +76,7 @@ class GameViewController: UIViewController {
     
     @objc func restartGame() {
         finishGame()
+        view().eraseViews()
         game.start()
         view().levelLabel.update(with: game.level)
         view().scoreLabel.update(with: game.score)
@@ -157,7 +158,8 @@ class GameViewController: UIViewController {
     }
     private func finishGame() {
         game.finish()
-        view().eraseViews()
+        view().addFallAndGravityBehaviour()
+        //view().eraseViews()
         UIView.animate(withDuration: 1) { [unowned self] in
             view().loseLogo.alpha = 1.0
             view().pauseButton.alpha = 0.0

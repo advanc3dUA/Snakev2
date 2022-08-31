@@ -32,6 +32,9 @@ class GameView: UIView {
     }()
     var loseLogo = LoseLogo()
     let feedback = Feedback()
+    
+    var animator = UIDynamicAnimator()
+    var collision = UICollisionBehavior()
 
     //MARK:- Inits
     // used if storyboard or xib used
@@ -128,6 +131,27 @@ class GameView: UIView {
                           options: [.beginFromCurrentState, .curveEaseOut]) {
             self.snakeView[indexOfImageView].image = SnakeImagesDict.shared[imageName]
         }
+    }
+    
+    func addFallAndGravityBehaviour() {
+        animator = UIDynamicAnimator(referenceView: gameField)
+        let gravity = UIGravityBehavior(items: snakeView)
+        gravity.magnitude = 0.75
+        animator.addBehavior(gravity)
+        
+        collision = UICollisionBehavior(items: snakeView)
+        animator.addBehavior(collision)
+        
+        let fieldWidthStarts = CGFloat(Piece.width)
+        let fieldHeightStarts = CGFloat(Piece.height)
+        let fieldWidthEnds = gameField.bounds.size.width - CGFloat(Piece.width)
+        let fieldHeightEnds = gameField.bounds.size.height - CGFloat(Piece.height)
+        
+        collision.addBoundary(withIdentifier: "BottomBoundary" as NSCopying, from: CGPoint(x: fieldWidthStarts, y: fieldHeightEnds), to: CGPoint(x: fieldWidthEnds, y: fieldHeightEnds))
+        
+        collision.addBoundary(withIdentifier: "LeftBoundary" as NSCopying, from: CGPoint(x: fieldWidthStarts, y: fieldHeightStarts), to: CGPoint(x: fieldWidthStarts, y: fieldHeightEnds))
+        
+        collision.addBoundary(withIdentifier: "RightBoundary" as NSCopying, from: CGPoint(x: fieldWidthEnds, y: fieldHeightStarts), to: CGPoint(x: fieldWidthEnds, y: fieldHeightEnds))        
     }
     
     //MARK:- Constraints
