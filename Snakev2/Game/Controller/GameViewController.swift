@@ -159,9 +159,10 @@ class GameViewController: UIViewController {
     private func finishGame() {
         game.finish()
         view().addFallAndGravityBehaviour()
-        //view().eraseViews()
         UIView.animate(withDuration: 1) { [unowned self] in
-            view().loseLogo.alpha = 1.0
+            if speedUpMode == false {
+                view().loseLogo.alpha = 1.0
+            }
             view().pauseButton.alpha = 0.0
             for button in view().moveButtons {
                 button.alpha = 0.0
@@ -171,7 +172,7 @@ class GameViewController: UIViewController {
     
     @objc func finishGameAndSaveRecord() {
         finishGame()
-        if Record.isNewRecord(game.score) {
+        if Record.isNewRecord(game.score) && speedUpMode == true {
             createAlert()
         }
     }
