@@ -9,7 +9,7 @@ import UIKit
 
 class GameView: UIView {
     
-    //MARK:- Variables
+    //MARK: - Variables
     let gameField = FieldImageView()
     var pauseButton = CustomButton(image: "pause.circle", hasTwoStates: true)
     var restartButton = CustomButton(image: "repeat")
@@ -36,7 +36,7 @@ class GameView: UIView {
     var animator = UIDynamicAnimator()
     var collision = UICollisionBehavior()
 
-    //MARK:- Inits
+    //MARK: - Inits
     // used if storyboard or xib used
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -51,7 +51,7 @@ class GameView: UIView {
         addAllSubviews()
     }
     
-    //MARK:- Methods
+    //MARK: - Methods
     private func setup() {
         self.backgroundColor = .black
         self.translatesAutoresizingMaskIntoConstraints = true
@@ -89,7 +89,7 @@ class GameView: UIView {
         self.feedback.feedbackForPickUp()
     }
     
-    //MARK:- Rotating
+    //MARK: - Rotating
     func rotateHead() {
         guard let headDirection = Snake.shared.body[0].direction else { return }
         switch headDirection {
@@ -154,7 +154,7 @@ class GameView: UIView {
         collision.addBoundary(withIdentifier: "RightBoundary" as NSCopying, from: CGPoint(x: fieldWidthEnds, y: fieldHeightStarts), to: CGPoint(x: fieldWidthEnds, y: fieldHeightEnds))        
     }
     
-    //MARK:- Constraints
+    //MARK: - Constraints
     override func updateConstraints() {
         addAllConstraints()
         super.updateConstraints()

@@ -34,7 +34,7 @@ struct Piece: Equatable {
     }
     
     
-    //MARK:- new piece of snake methods
+    //MARK: - new piece of snake methods
     func getRandomXY() -> (x: Int, y: Int) {
         var randomX = 0, randomY = 0
         repeat {

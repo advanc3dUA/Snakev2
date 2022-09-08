@@ -40,7 +40,7 @@ class GameViewController: UIViewController {
         finishGame()
     }
     
-    //MARK:- Methods
+    //MARK: - Methods
     func view() -> GameView {
         return view as! GameView
     }
@@ -86,7 +86,7 @@ class GameViewController: UIViewController {
         game.changeMovingDirection(sender.tag)
     }
     
-    //MARK:- Observers
+    //MARK: - Observers
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(gameStarted(_:)), name: .onGameStarted, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(addNewPieceToSnake(_:)), name: .onSnakeAppend, object: nil)

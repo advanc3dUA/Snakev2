@@ -24,13 +24,13 @@ class Game {
     var speedUpMode: Bool
     var classicMode: Bool
     
-    //MARK:- Init
+    //MARK: - Init
     init(speedUpMode: Bool, classicMode: Bool) {
         self.speedUpMode = speedUpMode
         self.classicMode = classicMode
     }
     
-    //MARK:- Methods
+    //MARK: - Methods
     func start() {
         dX = Piece.width
         dY = 0

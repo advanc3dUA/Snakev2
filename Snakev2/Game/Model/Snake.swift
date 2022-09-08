@@ -13,7 +13,7 @@ class Snake {
     
     private init() { }
     
-    //MARK:- game methods
+    //MARK: - game methods
     static func createSnake() {
         let snakeHead = Piece(x: Piece.width, y: Piece.height)
         Snake.shared.body.append(snakeHead)
@@ -24,7 +24,7 @@ class Snake {
         Snake.shared.body.removeAll()
     }
         
-    //MARK:- pickup new piece methods
+    //MARK: - pickup new piece methods
     static func isReadyToPickUp(_ newPiece: Piece) -> Bool {
         if Snake.shared.body[0].x == newPiece.x && Snake.shared.body[0].y == newPiece.y { return true }
         else { return false }
@@ -34,7 +34,7 @@ class Snake {
         Snake.shared.body.append(newPiece)
     }
     
-    //MARK:- moving methods
+    //MARK: - moving methods
     static func saveLastPositions() {
         for index in 0..<Snake.shared.body.count {
             Snake.shared.body[index].saveLastPosition()
@@ -53,7 +53,7 @@ class Snake {
         Snake.shared.body[0].direction = Snake.checkDirection()
     }
     
-    //MARK:- checking current direction
+    //MARK: - checking current direction
     static func checkDirection() -> Direction {
         let head = Snake.shared.body[0]
         if let lastX = head.lastX, let lastY = head.lastY {
@@ -64,7 +64,7 @@ class Snake {
         return .up
     }
     
-    //MARK:- lose game conditions
+    //MARK: - lose game conditions
     static func touchedBorders() -> Bool {
         let head = Snake.shared.body[0]
         
